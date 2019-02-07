@@ -1,0 +1,186 @@
+# ------------------------------------------------------------------------------
+# PROMPT
+# ------------------------------------------------------------------------------
+
+# load external scripts
+. ~/.bash_prompt --source-only
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# COMPUTER-NAME:username ~/directory  ⫛ git/branch  [git-status]  ⬢ node-version
+export PS1='\[\e[34m\]\h:\u \[\e[35m\]\w\[\e[36m\]$(parse_git_branch)\[\e[32m\]$(parse_git_status)\[\e[33m\]$(parse_node_version)\n\[\e[31m\]→\[\e[m\] '
+
+# ------------------------------------------------------------------------------
+# CONFIGS
+# ------------------------------------------------------------------------------
+
+# Tell homebrew not to use my github creds
+export HOMEBREW_NO_GITHUB_API=true
+
+# nvm (Node Version Manager)
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# Node Version Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# use ripgreip for fzf (fuzzy find)
+export FZF_DEFAULT_COMMAND='rg --files --smart-case'
+
+# Add Java to the PATH
+export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home'
+
+# Add Postgres to the PATH
+export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
+
+# Add ELM format to the PATH
+export PATH="/usr/local/Cellar/elm-format/0.5.2-alpha/bin:$PATH"
+
+# See this for more Homebrew options: https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
+# export HOMEBREW_CASK_OPTS="--appdir=~/Applications --caskroom=/etc/Caskroom"
+# /usr/local/Caskroom
+# To check where the repo is current set: $(brew --repository)
+# export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
+# Tell brew not to use my github credentials
+export HOMEBREW_NO_GITHUB_API=true
+
+# where are the default cheat sheets?
+export CHEAT_DEFAULT_DIR="/usr/local/lib/python3.7/site-packages/usr/share/cheat/"
+# where are _my_ cheat sheets?
+export CHEAT_PATH="/Users/andes/Documents/dev_git/losandes/notes/cheat/"
+export CHEAT_COLORS=true
+export CHEAT_EDITOR="vi"
+
+# # Python Version Manager
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+# source /usr/local/bin/virtualenvwrapper.sh
+
+# ------------------------------------------------------------------------------
+# ALIASES & FUNCTIONS
+# ------------------------------------------------------------------------------
+alias add-ssh="ssh-add -K ~/.ssh/id_rsa"
+alias copy-ssh="pbcopy < ~/.ssh/id_rsa.pub"
+alias tmux="TERM=screen-256color-bce tmux"
+alias show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hide-files='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias reset-hostname='sudo scutil --set HostName andes-jetpack.local'
+alias grep-by-file-type='read -p "What extension do you want to search for? " ext; read -p "What text do you want to search for? " txt; grep -rn --include="*.$ext" $txt *;'
+alias find-pid='read -p "What PID are you looking for? " app; ps aux | grep $app'
+alias cache-git-creds="git config credential.helper 'cache --timeout=43200'"
+alias powershell="pwsh"
+alias PowerShell="pwsh"
+# open files in Visual Studio the way you can with VS Code
+alias vs="open '/Applications/Visual Studio.app' *.sln"
+alias reload!='source ~/.bash_profile'
+alias cls='clear' # Good 'ol Clear Screen command
+
+lsc () {
+  echo "Running: ls -FGhl1a $1";
+  echo;
+  ls -FGhl1a $1;
+  echo;
+}
+
+lss () {
+  echo "Running ls -F $1 | sort -f";
+  echo;
+  ls -F $1 | sort -f;
+  echo;
+}
+
+lsd () {
+  echo "Running echo \$PWD";
+  echo;
+  echo $PWD
+  echo;
+}
+
+lscmd () {
+  echo "Running compgen -a";
+  echo;
+  compgen -a
+  echo;
+}
+
+lsfunc () {
+  echo "Running compgen -A function";
+  echo;
+  compgen -A function
+  echo;
+}
+
+lsexports () {
+  echo "Running export -p";
+  echo;
+  export -p
+  echo;
+}
+
+lstfvars () {
+  echo "Running export -p | grep TF_VAR";
+  echo;
+  export -p | grep TF_VAR
+  echo;
+}
+
+lscolors () {
+  echo
+  echo -e "\033[0mNC (No color)"
+  echo -e "\033[1;37mWHITE\t\033[0;30mBLACK"
+  echo -e "\033[0;34mBLUE\t\033[1;34mLIGHT_BLUE"
+  echo -e "\033[0;32mGREEN\t\033[1;32mLIGHT_GREEN"
+  echo -e "\033[0;36mCYAN\t\033[1;36mLIGHT_CYAN"
+  echo -e "\033[0;31mRED\t\033[1;31mLIGHT_RED"
+  echo -e "\033[0;35mPURPLE\t\033[1;35mLIGHT_PURPLE"
+  echo -e "\033[0;33mYELLOW\t\033[1;33mLIGHT_YELLOW"
+  echo -e "\033[1;30mGRAY\t\033[0;37mLIGHT_GRAY"
+  echo
+}
+
+lscolors-256 () {
+  for i in {0..255} ; do
+    printf "\x1b[38;5;${i}mcolor ${i}\n"
+  done
+}
+
+addSshKeys () {
+  ssh-add -K ~/.ssh/id_rsa_losandes
+  ssh-add -K ~/.ssh/awright_at_crl_phabricator.key
+}
+
+setUpstream () {
+    git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+}
+
+whoseport () {
+    lsof -i ":$1" | grep LISTEN
+}
+
+exists () {
+  if hash $1 2>/dev/null; then
+    true
+  else
+    false
+  fi
+}
+
+# Examples for using `exists`
+node_exists () {
+  if exists node; then
+    echo "node exists"
+  else
+    echo "node doesn't exist"
+  fi
+}
+
+foo_exists () {
+  if exists foo; then
+    echo "foo exists"
+  else
+    echo "foo doesn't exist"
+  fi
+}
+

@@ -3,17 +3,26 @@
 # Looks for markdown files in the hints folder, and opens it in vim
 #
 # USAGE:
-#    $ myhint vim
+#    $ hint vim
 #    # => will open my vim hints in vim
+#
+#    $ hint -l
+#    # => will list available hints
 type vi >/dev/null 2>&1 || { echo >&2 "I require vi but it's not installed."; exit 1; }
 
-TOOL=${1:?Usage: myhint <toolname>}
+TOOL=${1:?Usage: hint <toolname> [-l]}
 
 USER_DIR=$HOME/.dotfiles/hints
 USER_FILE=$USER_DIR/${TOOL}.md
 
 if [ ! -d $USER_DIR ]; then
   mkdir -p $USER_DIR
+fi
+
+if [ "$TOOL" == "-l" ]; then
+  echo
+  ls -1 $USER_DIR | grep ".md" | sed -e 's/\.md$//'
+  exit 0
 fi
 
 if [ -s $USER_FILE ]; then
