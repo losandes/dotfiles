@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if $(cmd-exists node) == "true"; then
+  echo "node exists"
+else
+  echo "node doesn't exist"
+fi
+

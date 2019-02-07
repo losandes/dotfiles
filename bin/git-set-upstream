@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Sets the upstream to a branch with the same name at origin
+git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+

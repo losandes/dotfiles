@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Hint for listing all of the exports in context
+echo
+echo "$ export -p"
+echo "=> list all of the exports in context"
+echo
+echo "$ export -p | grep TF_VAR"
+echo "=> list all of the terraform variables in context"
+echo
+echo "$ ls -FGhl1a"
+echo "=> list all files in a directory, vertically, and differentiate between"
+echo "   files, folders, executables, and symlinks"
+echo
+echo "$ compgen -a"
+echo "=> list available aliases"
+echo
+echo "$ compgen -A function"
+echo "=> list available functions"
+echo
+echo "$ echo \$PWD"
+echo "=> print the current working directory"
+

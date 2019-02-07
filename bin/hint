@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# Looks for markdown files in the hints folder, and opens it in vim
+#
+# USAGE:
+#    $ myhint vim
+#    # => will open my vim hints in vim
+type vi >/dev/null 2>&1 || { echo >&2 "I require vi but it's not installed."; exit 1; }
+
+TOOL=${1:?Usage: myhint <toolname>}
+
+USER_DIR=$HOME/.dotfiles/hints
+USER_FILE=$USER_DIR/${TOOL}.md
+
+if [ ! -d $USER_DIR ]; then
+  mkdir -p $USER_DIR
+fi
+
+if [ -s $USER_FILE ]; then
+  vi $USER_FILE 2>/dev/null
+else
+  echo No hints for ${TOOL} were found!
+fi
+
+

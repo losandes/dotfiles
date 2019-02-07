@@ -1,7 +1,10 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
-tap 'puma/puma'
+
+brew 'go'
+
+
 
 brew 'ack'
 brew 'coreutils'

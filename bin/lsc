@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ls -FGhl1a $1
+

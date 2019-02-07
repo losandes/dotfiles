@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Quick shortcut to an editor.
 #
@@ -8,9 +8,17 @@
 # USAGE:
 #
 #   $ e
-#   # => opens the current directory in your editor
+#   # => opens the editor
 #
 #   $ e .
 #   $ e /usr/local
 #   # => opens the specified directory in your editor
-exec "$EDITOR" "${1:-.}"
+#
+#   $ e /foo/bar.md
+#   # => opens the speficied file in your editor
+if test ! $@; then
+  exec "$EDITOR"
+else
+  exec "$EDITOR" "${1}"
+fi
+

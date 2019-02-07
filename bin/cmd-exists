@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Checks to see if a command exists
+# returns true or false
+#
+# USAGE:
+#   $ cmd-exists node
+#   # => true
+#
+#   if $(cmd-exists node) == "true"; then
+if hash $@ 2>/dev/null; then
+#  exit 0
+  echo true
+else
+#  exit 1
+  echo false
+fi
+

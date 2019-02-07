@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# lists the contents of this directory
+echo
+ls -FGhl1 ~/.dotfiles/bin
+
