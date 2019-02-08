@@ -44,30 +44,16 @@ set rtp+=/usr/local/opt/fzf
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call fzf#run({'sink': 'split'}) | endif
 
-" linting
+" linting 
 " (https://prettier.io/docs/en/vim.html#ale-https-githubcom-w0rp-ale)
 " let g:ale_linters_explicit = 1 " only run configured linters (no defaults)
 let g:ale_fix_on_save=1        " automatically format on save
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {
+let g:ale_linters = { 
 \  'javascript': ['eslint'],
-\  'typescript': ['tslint'],
-\  'vue': ['eslint', 'vls']
-\}
-
-let g:ale_fixers = {
-\  'javascript': ['prettier', 'eslint'],
-\  'jsx': ['prettier', 'eslint'],
-\  'flow': ['prettier'],
-\  'typescript': ['tslint'],
-\  'css': ['prettier'],
-\  'less': ['prettier'],
-\  'scss': ['prettier'],
-\  'json': ['prettier'],
-\  'graphql': ['prettier'],
-\  'markdown': ['prettier']
+\  'typescript': ['tslint']
 \}
 
 " Map cut and copy keystrokes for visual mode
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
+
