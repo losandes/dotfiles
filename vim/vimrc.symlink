@@ -1,4 +1,73 @@
-syntax on
+" Inspirations:
+" https://github.com/justinforce/dotfiles/blob/master/files/nvim/init.vim
+" https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+execute pathogen#infect()
+
+syntax on
+set secure
+filetype plugin indent on
+set tabstop=2                                    " show existing tab with 2 spaces widthspaces width
+set shiftwidth=2                                 " when indenting with '>', use 2
+set expandtab                                    " On pressing tab, insert 2 spaces
+set ruler                                        " add a ruler to the command bar
+set relativenumber                               " show line numbers relative to the cursor
+set numberwidth=6                                " set the width of the line numbers
+set scrolloff=10                                 " scroll the window so we can always see 10 lines around the cursor
+set printoptions=paper:letter                    " use letter as the print output format
+set diffopt=vertical                             " For fugitive: show :Gdiff side-by-side
+
+" set background=dark
+" let g:one_allow_italics=1                        " allow italics
+" let g:airline_theme='onedark'
+" colorscheme one
+" set textwidth=80                                 " auto wrap at 80 characters
+" set mouse=                                       " turn off mouse support
+" set mouse=a                                      " mouse support for dropping the cursor
+" set nomousehide                                  " don't hide the mouse cursor while typing
+" set mousemodel=popup                             " right-click pops up context menu
+
+" set the color for highlighting beyond 80
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn="80,".join(range(120,999),",")  " add line markers at 80, and beyond 120
+
+set nowrap                                       " don't wrap lines
+augroup wrapTextInMarkdown                       " wrap lines for markdown files
+  autocmd!
+  autocmd FileType markdown setlocal wrap
+  autocmd BufRead,BufNewFile *.md setlocal wrap
+augroup END
+
+" add fzf to the PATH
+set rtp+=/usr/local/opt/fzf
+" Open Files if no file was specified (vi)
+autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call fzf#run({'sink': 'split'}) | endif
+
+" linting
+" (https://prettier.io/docs/en/vim.html#ale-https-githubcom-w0rp-ale)
+" let g:ale_linters_explicit = 1 " only run configured linters (no defaults)
+let g:ale_fix_on_save=1        " automatically format on save
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {
+\  'javascript': ['eslint'],
+\  'typescript': ['tslint'],
+\  'vue': ['eslint', 'vls']
+\}
+
+let g:ale_fixers = {
+\  'javascript': ['prettier', 'eslint'],
+\  'jsx': ['prettier', 'eslint'],
+\  'flow': ['prettier'],
+\  'typescript': ['tslint'],
+\  'css': ['prettier'],
+\  'less': ['prettier'],
+\  'scss': ['prettier'],
+\  'json': ['prettier'],
+\  'graphql': ['prettier'],
+\  'markdown': ['prettier']
+\}
+
+" Map cut and copy keystrokes for visual mode
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
