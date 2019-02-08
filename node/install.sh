@@ -1,27 +1,29 @@
-echo "Installing NVM and Node"
+#!/bin/sh
+#
+# Installs the latest LTE version of node as default for NVM
+type nvm >/dev/null 2>&1 || { echo >&2 "I require nvm to be installed."; exit 1; }
 
+CURRENT_VERSION=$(nvm current)
+VERSION=$(nvm version-remote --lts)
 
+if $CURRENT_VERSION == $VERSION; then
+  # the latest version is already installed
+  exit 0
+fi
 
+# install the latest LTS version of node
+nvm install $VERSION
 
-#!/usr/bin/env bash                                                                                                               
-                                                                                                                                  
-echo "Installing NVM and Node"                                                                                                    
-brew install nvm                                                                                                                  
-source $(brew --prefix nvm)/nvm.sh                                                                                                
-                                                                                                                                  
-# install some versions of node                                                                                                   
-nvm install 8.11.4                                                                                                                
-                                                                                                                                  
-# use 8.11.4 by default                                                                                                           
-nvm use 8.11.4                                                                                                                    
-                                                                                                                                  
-# Setup an alias, so we use the default in new terminal windows                                                                   
-# Otherwise, we would have to nvm use 8.11.4 in every new terminal                                                                
-nvm alias default 8.11.4                                                                                                          
-                                                                                                                                  
-# If you have a pre-existing node installation, you can                                                                           
-# reinstall the global packages for the new node version:                                                                         
-# nvm reinstall-packages <version>                                                                                                
-# OR nvm install node --reinstall-packages-from=node                                                                              
-# See https://github.com/creationix/nvm/issues/668 for more information
+# use the newly installed version
+nvm use $VERSION
 
+# set the default node version for new terminal windows
+nvm alias default $VERSION
+
+# if an existing version was found when this script ran
+if [ ! -z "$CURRENT_VERSION" ]; then
+  # reinstall any global packages that were installed on the previous version
+  nvm reinstall-packages $CURRENT_VERSION
+  # OR nvm install node --reinstall-packages-from=node
+  # See https://github.com/creationix/nvm/issues/668 for more information
+fi

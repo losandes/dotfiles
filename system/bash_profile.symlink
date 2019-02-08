@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # load external scripts
-. ~/.bash_prompt --source-only
+. ~/.dotfiles/system/bash_prompt.sh --source-only
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # COMPUTER-NAME:username ~/directory  ⫛ git/branch  [git-status]  ⬢ node-version

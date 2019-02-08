@@ -34,3 +34,17 @@ grep -C 3 "401" foo.log
 grep -m 3 -C 3 "401" foo.log
 ```
 
+# Find in files by file type
+
+```
+$EXT=js
+$TXT="import"
+grep -rn --include="*.$EXT" $TXT *
+```
+
+Or interactively:
+
+```
+read -p "What extension do you want to search for? " ext; read -p "What text do you want to search for? " txt; grep -rn --include="*.$ext" $txt *;
+```
+

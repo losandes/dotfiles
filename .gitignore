@@ -1,6 +1,7 @@
 ## ignore OS files
 .swp
 .DS_Store
+dotfiles-workspace
 
 ## ignore gitconfig
 git/gitconfig.local.symlink
