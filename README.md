@@ -64,3 +64,7 @@ this script in `bin/`.
 ## thanks
 
 This is a fork of [Zach Holman's](https://github.com/holman) excellent [dotfiles](https://github.com/holman/dotfiles)!
+
+## disclaimer
+
+These are my dotfiles, I made a lot of changes from Zach's code, and they might not work on your machine. Use at your own risk.

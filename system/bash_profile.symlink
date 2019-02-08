@@ -48,8 +48,6 @@ export HOMEBREW_NO_GITHUB_API=true
 
 # where are the default cheat sheets?
 export CHEAT_DEFAULT_DIR="/usr/local/lib/python3.7/site-packages/usr/share/cheat/"
-# where are _my_ cheat sheets?
-export CHEAT_PATH="/Users/andes/Documents/dev_git/losandes/notes/cheat/"
 export CHEAT_COLORS=true
 export CHEAT_EDITOR="vi"
 
