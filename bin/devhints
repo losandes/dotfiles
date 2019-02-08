@@ -15,7 +15,7 @@ REFRESH=${2:-no}
 
 RAW_MD_URL="https://raw.github.com/hazeorid/devhints.io/gh-pages/${TOOL}.md"
 
-CACHE_DIR=$HOME/.devhints/
+CACHE_DIR=$DOT/cache/.devhints
 LOCAL_CACHE_FILE=$CACHE_DIR/${TOOL}.md
 
 if [ ! -d $CACHE_DIR ]; then

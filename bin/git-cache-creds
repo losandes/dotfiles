@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Caches git credentials so you don't have to enter a password over and over
+git config credential.helper 'cache --timeout=43200'
+

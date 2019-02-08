@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Finds a PID by process name
+
+NAME=${1:?Usage: find-pid <app-name>}
+
+ps aux | grep $NAME
+
