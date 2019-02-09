@@ -61,6 +61,19 @@ origin  https://github.com/OWNER/REPOSITORY.git (push)
 
 ## Rebasing
 
+### Rebasing a branch into your current branch
+Let's say you are working in a branch, and you or someone else makes changes to a branch that logically precedes your work. For instance, you wrote a branch to initialize your code, and then in a new branch you started writing your first module. You realize you forgot to configure linting in your init branch, and you want that to logically preceed your first module. We can rebase our current branch from another branch to rewrite history.
+
+[Git Interactive Rebase, Squash, Amend and Other Ways of Rewriting History](https://thoughtbot.com/blog/git-interactive-rebase-squash-amend-rewriting-history)
+
+```Shell
+git checkout old-branch
+# make some changes
+git commit
+git checkout new-branch-that-already-has-some-changes
+git rebase -i old-branch
+```
+
 ### Rebase to Master
 ```
 git fetch origin            # Updates origin/master
