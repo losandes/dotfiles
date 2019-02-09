@@ -51,7 +51,7 @@ let g:ale_fix_on_save=1        " automatically format on save
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {
 \  'javascript': ['eslint'],
-\  'typescript': ['tslint'],
+\  'typescript': ['tsserver', 'tslint'],
 \  'vue': ['eslint', 'vls']
 \}
 

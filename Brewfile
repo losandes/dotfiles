@@ -18,12 +18,11 @@ brew 'ripgrep'
 brew 'terraform'
 brew 'tmux'
 brew 'tree'
-brew 'vim' --override-system-vi
+brew 'vim'
 brew 'wget'
 
 
 cask 'alfred'
-
 cask 'google-chrome'
 cask 'keybase'
 cask 'visual-studio-code'
@@ -39,3 +38,4 @@ cask 'visual-studio-code'
 # cask 'sequel-pro'
 # cask 'slack'
 # cask 'tableplus'
+
