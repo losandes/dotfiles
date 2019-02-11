@@ -7,8 +7,8 @@ execute pathogen#infect()
 syntax on
 set secure
 filetype plugin indent on
-set tabstop=2                                    " show existing tab with 2 spaces widthspaces width
-set shiftwidth=2                                 " when indenting with '>', use 2
+set tabstop=4                                    " show existing tab with 2 spaces widthspaces width
+set shiftwidth=4                                 " when indenting with '>', use 2
 set expandtab                                    " On pressing tab, insert 2 spaces
 set ruler                                        " add a ruler to the command bar
 set relativenumber                               " show line numbers relative to the cursor
@@ -31,6 +31,12 @@ set diffopt=vertical                             " For fugitive: show :Gdiff sid
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let &colorcolumn="80,".join(range(120,999),",")  " add line markers at 80, and beyond 120
 
+" these highlights should be put in a color scheme that uses my slack.terminal theme
+" highlight Statement ctermfg=Yellow
+highlight LineNr ctermfg=235
+highlight ALEErrorSign ctermbg=89
+highlight ALEError ctermbg=89
+
 set nowrap                                       " don't wrap lines
 augroup wrapTextInMarkdown                       " wrap lines for markdown files
   autocmd!
@@ -50,7 +56,20 @@ autocmd StdinReadPre * let s:std_in=1
 let g:ale_fix_on_save=1        " automatically format on save
 let g:ale_linters = { 
 \  'javascript': ['eslint'],
-\  'typescript': ['tslint']
+\  'typescript': ['tsserver', 'tslint']
+\}
+
+let g:ale_fixers = {
+\  'javascript': ['prettier', 'eslint'],
+\  'jsx': ['prettier', 'eslint'],
+\  'flow': ['prettier'],
+\  'typescript': ['tslint'],
+\  'css': ['prettier'],
+\  'less': ['prettier'],
+\  'scss': ['prettier'],
+\  'json': ['prettier'],
+\  'graphql': ['prettier'],
+\  'markdown': ['prettier']
 \}
 
 " Map cut and copy keystrokes for visual mode
