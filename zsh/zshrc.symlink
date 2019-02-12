@@ -38,7 +38,7 @@ source $ZSH/oh-my-zsh.sh
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECT="$HOME/src"
+export PROJECTS="$HOME/src"
 
 # Path to your dotfiles (it might be different than ZSH)
 export DOT="$HOME/.dotfiles"
