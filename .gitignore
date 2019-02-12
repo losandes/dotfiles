@@ -9,3 +9,6 @@ git/gitconfig.local.symlink
 ## ignore caches produced by dotfiles
 cache
 
+## project paths
+projects
+

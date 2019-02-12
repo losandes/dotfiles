@@ -17,6 +17,7 @@ fi
 # 'junegunn/fzf.vim': “fuzzy finder” works similarly to the Goto Anything menu in Sublime Text, allowing you to open a file instantly after typing a rough representation of its name
 # 'airblade/vim-gitgutter': adds a column to the left margin indicating lines changed in the active file since the last Git revision
 # 'mattn/emmet-vim': a  completion tool for HTML, CSS and JavaScript which allows you to make dynamic completions from a shorthand expression
+# 'ArtBIT/vim-modularvimrc': Load directory specific .vimrc files (including the ones from parent directories)
 
 git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/vim-sensible
 git clone https://github.com/tpope/vim-commentary ~/.vim/bundle/vim-commentary
@@ -39,6 +40,10 @@ git clone https://github.com/terryma/vim-multiple-cursors.git ~/.vim/bundle/vim-
 git clone https://github.com/junegunn/fzf.vim.git ~/.vim/bundle/fzf.vim
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 git clone https://github.com/mattn/emmet-vim.git ~/.vim/bundle/emmet-vim
+git clone https://github.com/ArtBIT/vim-modularvimrc.git ~/.vim/bundle/vim-modularvimrc
+
+# Optional Themes
+git clone https://github.com/evturn/cosmic-barf.git ~/.vim/bundle/cosmic-barf
 
 # Using TypeScript?
 # git clone https://github.com/leafgarland/typescript-vim.git
