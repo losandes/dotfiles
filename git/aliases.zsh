@@ -52,13 +52,11 @@ alias gdm="git diff origin/master HEAD --color | sed '${REMOVE_PLUSMINUS}' | les
 # Show _uncommited and commited_ changes between HEAD and master
 alias gdm-uncommited="git diff origin/master --color | sed '${REMOVE_PLUSMINUS}' | less -r"
 
+alias ga='git add -A'
 alias gc='git commit'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
-
-# Git add all changes, and then commit
-alias gac='git add -A && git commit'
 
 # Git add interactive, to choose which chunks to include, and then commit
 alias gaic='git add -p && git commit'
