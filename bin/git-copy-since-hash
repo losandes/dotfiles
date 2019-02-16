@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Copies to the clipboard, the git log since a given hash
+#
+# USAGE:
+#     $ git-copy-since-hash 907835a
+#     #   where "907835a" is the hash _before_ the hash you want to start copying from 
+git log --pretty=format:'%n%C(red)## %s%C(reset)%n%b' -n $(git rev-list ${1}..HEAD --count --reverse) | pbcopy
+
