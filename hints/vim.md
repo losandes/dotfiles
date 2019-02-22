@@ -41,7 +41,8 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 * `yy` yank current line
 * `y$` yank to end of current line from cursor
 * `yw` yank from cursor to end of current word
-* `5yy` yank, for example, 5 lines
+* `5yy` yank 5 lines
+* `5"+yy` yank 5 lines to the OS clipboard
 
 ### Paste (used after delete or yank to recover lines.)
 
@@ -51,6 +52,7 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 * `u` Undo last change
 * `U` Restore line
 * `J` Join next line down to the end of the current line
+* `"+p` paste from the OS clipboard
 
 #### Delete
 
