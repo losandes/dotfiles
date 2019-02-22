@@ -31,6 +31,8 @@ MYSQL_IMAGE_PORT=${MYSQL_IMAGE_PORT:=$MYSQL_PORT:$MYSQL_PORT} # the port mapping
 
 printf "\nrunning $MYSQL_IMAGE_NAME...\n\n"
 mkdir -p $VOLUME_DIR                                          # Make sure the directory exists
+
+# NOTE: the comments might need to be removed for the slashes to work
 docker run \                                                  # Run mysql in daemon mode, expose port 3306 and mount this directory to /repo
   --name $MYSQL_IMAGE_NAME \                                  # give the image a specific name
   --mount "type=bind,src=$BASE_DIR,dst=/repo" \               # mount the parent directory to the repo folder

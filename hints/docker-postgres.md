@@ -35,6 +35,8 @@ PG_IMAGE_PORT=${PG_IMAGE_PORT:=$PGPORT:$PGPORT}   # the port mapping (i.e. 5432:
 
 printf "\nrunning $PG_IMAGE_NAME...\n\n"
 mkdir -p $VOLUME_DIR                              # Make sure the directory exists
+
+# NOTE: the comments might need to be removed for the slashes to work
 docker run \                                      # Run postgres in daemon mode, expose port 5423 and mount this directory to /repo
   --name $PG_IMAGE_NAME \                         # give the image a specific name
   --mount "type=bind,src=$BASE_DIR,dst=/repo" \   # mount the parent directory to the repo folder

@@ -122,3 +122,31 @@ Where as if we were calling it directly, we could use `$@`
 
 More here: [bash by example](http://matt.might.net/articles/bash-by-example/), and [small getopts tutorial](https://wiki.bash-hackers.org/howto/getopts_tutorial).
 
+## Getting the script directory, and relative paths
+
+```Shell
+# Assuming the following directory structure
+# root
+#   |_ bin
+#   |  |_ THIS SCRIPT!
+#   |_ node_modules
+#   |  |_ .bin
+#   |  |_ ...
+#   |_ src
+
+# Get the path of this directory
+BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+#                                             # => (/Users/[UNAME]/.../root/bin)
+
+# Set the path for this script
+THIS_PATH="$BIN_DIR/this_script_name"         # => (/Users/[UNAME]/.../root/bin/this_script_name)
+
+# Remove "bin" from the BIN_DIR to get the parent directory
+ROOT_DIR=$(echo $BIN_DIR | sed 's/\/bin//g')  # => (/Users/[UNAME]/.../root)
+
+# Set the path for the executable node modules that are installed in the root project
+NODE_BIN="$BASE_DIR/node_modules/.bin"        # => (/Users/[UNAME]/.../root/node_modules/.bin)
+
+# Set the path for the src directory
+SRC_DIR="$BASE_DIR/src"                       # => (/Users/[UNAME]/.../root/src)
+```
