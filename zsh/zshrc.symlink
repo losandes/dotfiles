@@ -24,7 +24,7 @@ SPACESHIP_HOST_SHOW="always"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git httpie)
 
 # Run the plugins, themes, etc.
 source $ZSH/oh-my-zsh.sh
@@ -37,14 +37,8 @@ source $ZSH/oh-my-zsh.sh
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
-# your project folder that we can `c [tab]` to
-export PROJECT="$HOME/src"
-
 # Path to your dotfiles (it might be different than ZSH)
 export DOT="$HOME/.dotfiles"
-
-# use ripgreip for fzf (fuzzy find)                                                                                                      
-export FZF_DEFAULT_COMMAND='rg --files --smart-case'
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -90,3 +84,5 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+setopt extendedglob
+

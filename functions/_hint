@@ -1,0 +1,9 @@
+#compdef hint
+
+# compdef '_files -g "*.h"' foo
+# _files -W "$DOT/hints /-
+# "^*.*"
+_files -W "$DOT/hints" 
+
+# TODO: remove file extensions
+

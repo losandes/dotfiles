@@ -28,8 +28,26 @@ set diffopt=vertical                             " For fugitive: show :Gdiff sid
 " set mousemodel=popup                             " right-click pops up context menu
 
 " set the color for highlighting beyond 80
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=237
 let &colorcolumn="80,".join(range(120,999),",")  " add line markers at 80, and beyond 120
+
+" these highlights should be put in a color scheme that uses my slack.terminal theme
+" highlight Statement ctermfg=Blue
+" highlight String ctermfg=Yellow
+" highlight Type ctermfg=Green
+" highlight Number ctermfg=Red
+" set background=dark
+highlight Statement ctermfg=12
+highlight String ctermfg=11
+highlight Type ctermfg=10
+highlight Number ctermfg=9
+highlight LineNr ctermfg=235
+highlight Comment ctermfg=235
+highlight MatchParen ctermbg=237
+" highlight MatchParen ctermbg=5 ctermfg=15
+highlight Error ctermbg=88
+highlight ALEErrorSign ctermbg=89
+highlight ALEError ctermbg=89
 
 set nowrap                                       " don't wrap lines
 augroup wrapTextInMarkdown                       " wrap lines for markdown files
@@ -44,15 +62,21 @@ set rtp+=/usr/local/opt/fzf
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call fzf#run({'sink': 'split'}) | endif
 
-" linting
+" Map Ctrl+b to NERDTreeToggle
+map <C-b> :NERDTreeToggle<CR>
+" Map Ctrl+t to :Files
+map <C-t> :Files<CR>
+" Map cut and copy keystrokes for visual mode
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+
+" linting 
 " (https://prettier.io/docs/en/vim.html#ale-https-githubcom-w0rp-ale)
 " let g:ale_linters_explicit = 1 " only run configured linters (no defaults)
 let g:ale_fix_on_save=1        " automatically format on save
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {
+let g:ale_linters = { 
 \  'javascript': ['eslint'],
-\  'typescript': ['tsserver', 'tslint'],
-\  'vue': ['eslint', 'vls']
+\  'typescript': ['tsserver', 'tslint']
 \}
 
 let g:ale_fixers = {
@@ -68,6 +92,3 @@ let g:ale_fixers = {
 \  'markdown': ['prettier']
 \}
 
-" Map cut and copy keystrokes for visual mode
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
