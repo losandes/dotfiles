@@ -10,7 +10,7 @@ export -p
 export -p | grep TF_VAR
 ```
 
-## List all files in a directory, vertically, and differentiate between foles, folders, executables, and symlinks
+## List all files in a directory, vertically, and differentiate files, folders, executables, and symlinks
 
 ```Shell
 ls -FGhl1a

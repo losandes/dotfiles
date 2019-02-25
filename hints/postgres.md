@@ -2,15 +2,15 @@
 
 ```sql
 SELECT  p.proname
-FROM    pg_catalog.pg_namespace n
-JOIN    pg_catalog.pg_proc p
-ON      p.pronamespace = n.oid
-WHERE   n.nspname = 'public'
+  FROM    pg_catalog.pg_namespace n
+  JOIN    pg_catalog.pg_proc p
+  ON      p.pronamespace = n.oid
+  WHERE   n.nspname = 'public'
 ```
 
-## Turn on logging:
+## Turn on logging
 
-Execute this, or connect to the docker container, and execute these lines. Afterwards you MUST RESTART postgres.
+Sign on to the machine postgres is running on, and add `log_statement = all` to the "postgresql.conf". Afterwards you MUST RESTART postgres.
 
 ```Shell
 #!/bin/bash
@@ -19,4 +19,3 @@ log_statement = all
 # log_min_duration_statement = 100
 EOF
 ```
-
