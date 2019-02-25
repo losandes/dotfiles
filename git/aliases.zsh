@@ -36,7 +36,7 @@ alias glg-changes-to-head-not-in-master="git log origin/master..HEAD --pretty=fo
 alias glgcp="git-copy-since-hash"
 
 # Set this branches upstream
-alias gsu="git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
+# alias gsu="git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
 
 # Push HEAD to the origin 
 alias gp='git push origin HEAD'
