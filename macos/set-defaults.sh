@@ -29,3 +29,10 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# TODO:
+# Turn off keyboard: correct spelling automatically
+# Turn off keyboard: capitalize words automatically
+# Turn off keyboard: add period with double space
+# Turn off keyboard: touchbar typing suggestions
+# Turn off keyboard: use smart quotes
