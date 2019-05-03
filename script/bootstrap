@@ -102,6 +102,29 @@ link_file () {
   fi
 }
 
+install_zsh () {
+  export ZSH="$HOME/.oh-my-zsh"; 
+
+  if [ ! -d $ZSH ]; then
+    info 'installing oh-my-zsh'
+
+    curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+
+    info 'installing spaceship prompt'
+    git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH/themes/spaceship-prompt"
+    ln -s "$ZSH/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/themes/spaceship.zsh-theme"
+
+    info 'changing default shell to zsh'
+    chsh -s /bin/zsh
+
+    source $ZSH/oh-my-zsh.sh
+  else
+    info 'oh-my-zsh is already installed - skipping installation'
+  fi
+
+  
+}
+
 install_dotfiles () {
   info 'installing dotfiles'
 
@@ -114,6 +137,7 @@ install_dotfiles () {
   done
 }
 
+install_zsh
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
