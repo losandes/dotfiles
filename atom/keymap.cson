@@ -1,0 +1,3 @@
+'.platform-darwin atom-text-editor':
+  'alt-cmd-down': 'editor:add-selection-below'
+  'alt-cmd-up': 'editor:add-selection-above'  

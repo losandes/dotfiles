@@ -2,6 +2,7 @@
 .swp
 .DS_Store
 dotfiles-workspace
+hidden
 
 ## ignore gitconfig
 git/gitconfig.local.symlink

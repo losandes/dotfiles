@@ -1,0 +1,26 @@
+"*":
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "native-ui"
+      "seti-syntax"
+    ]
+  editor:
+    fontFamily: "hasklig, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 16
+    scrollPastEnd: true
+  "linter-eslint":
+    autofix:
+      fixOnSave: true
+    scopes: [
+      "source.js"
+      "source.jsx"
+      "source.js.jsx"
+      "source.flow"
+      "source.babel"
+      "source.js-semantic"
+      "source.ts"
+      "source.json"
+    ]
+  "linter-ui-default":
+    showPanel: true

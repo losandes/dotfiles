@@ -38,7 +38,7 @@ alias glgcp="git-copy-since-hash"
 # Set this branches upstream
 # alias gsu="git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
 
-# Push HEAD to the origin 
+# Push HEAD to the origin
 alias gp='git push origin HEAD'
 
 local REMOVE_PLUSMINUS="s/^\([^-+ ]*\)[-+ ]/\\1/"
@@ -63,4 +63,3 @@ alias gaic='git add -p && git commit'
 
 # Git stash (include untracked files)
 alias gstash='git stash -u'
-

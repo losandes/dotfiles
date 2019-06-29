@@ -1,0 +1,15 @@
+atom-beautify@0.33.4
+atom-ide-ui@0.13.0
+atom-typescript@13.2.1
+color-picker@2.3.0
+file-icons@2.1.33
+language-terraform@0.8.1
+language-vue@0.24.0
+linter-eslint@8.5.5
+merge-conflicts@1.4.5
+native-color-picker@0.2.5
+native-ui@0.27.0
+pigments@0.40.2
+seti-syntax@1.2.0
+terminal-tab@0.5.7
+todo-show@2.3.2

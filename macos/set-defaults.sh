@@ -7,6 +7,11 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+if test ! "$(uname)" = "Darwin"
+	then
+  exit 0
+fi
+
 # Use AirDrop over every interface. srsly this should be a default.
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
