@@ -32,10 +32,13 @@ brew "tree"
 brew "vim"
 brew "wget"
 
+cask "1password"
 cask "alfred"
 cask "atom"
+cask "harvest"
 cask "keybase"
 cask "ngrok"
+cask "tableplus"
 cask "visual-studio-code"
 
 mas "Affinity Designer", id: 824171161
@@ -54,7 +57,6 @@ mas "Xcode", id: 497799835
 # brew "fontforge"
 # brew "openvpn", restart_service: true, link: false
 
-# cask "1password"
 # cask "dbeaver-community"
 # cask "google-chrome"
 # cask "firefox"
@@ -67,7 +69,6 @@ mas "Xcode", id: 497799835
 # cask "robomongo"
 # cask "sequel-pro"
 # cask "slack"
-# cask "tableplus"
 
 # mas "Cyberduck", id: 409222199
 # mas "GarageBand", id: 682658836
