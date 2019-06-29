@@ -35,9 +35,13 @@ brew "wget"
 cask "1password"
 cask "alfred"
 cask "atom"
+cask "docker"
 cask "harvest"
 cask "keybase"
+cask "kitematic"
 cask "ngrok"
+cask "numi"
+cask "postman"
 cask "tableplus"
 cask "visual-studio-code"
 
@@ -57,18 +61,26 @@ mas "Xcode", id: 497799835
 # brew "fontforge"
 # brew "openvpn", restart_service: true, link: false
 
+# cask "azure-data-studio"
+# cask "datagrip"
 # cask "dbeaver-community"
+# cask "deckset"
 # cask "google-chrome"
 # cask "firefox"
 # cask "intellij-idea"
 # cask "java"
+# cask "microsoft-azure-storage-explorer"
 # cask "mongo-management-studio"
 # cask "ngrok"
 # cask "postico"
 # cask "powershell"
 # cask "robomongo"
+# screenflow 7.3.1: https://github.com/Homebrew/homebrew-cask/pull/48803
+# cask "screenflow@7.3.1"
 # cask "sequel-pro"
 # cask "slack"
+# cask "viscosity" # VPN client
+# cask "visual-studio"
 
 # mas "Cyberduck", id: 409222199
 # mas "GarageBand", id: 682658836
