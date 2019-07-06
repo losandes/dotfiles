@@ -63,7 +63,7 @@ this script in `bin/`.
 
 ## thanks
 
-This is a fork of [Zach Holman's](https://github.com/holman) excellent [dotfiles](https://github.com/holman/dotfiles)!
+This is a fork of [Zach Holman's](https://github.com/holman) excellent [dotfiles](https://github.com/holman/dotfiles), and also includes a lot of help from [awesome dotfiles](https://github.com/webpro/awesome-dotfiles)!
 
 ## disclaimer
 
