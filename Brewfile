@@ -54,6 +54,7 @@ mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "WiFi Explorer", id: 494803304
 mas "Xcode", id: 497799835
+mas "Wipr", id: 1320666476
 
 # brew "awscli"
 # brew "azure-cli"
