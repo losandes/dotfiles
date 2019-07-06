@@ -1,4 +1,8 @@
 "*":
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
+    highlightMatchingLineNumber: true  
   core:
     telemetryConsent: "no"
     themes: [
