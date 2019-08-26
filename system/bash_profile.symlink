@@ -29,15 +29,6 @@ export NVM_DIR="$HOME/.nvm"
 # use ripgreip for fzf (fuzzy find)
 export FZF_DEFAULT_COMMAND='rg --files --smart-case'
 
-# Add Java to the PATH
-export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home'
-
-# Add Postgres to the PATH
-export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
-
-# Add ELM format to the PATH
-export PATH="/usr/local/Cellar/elm-format/0.5.2-alpha/bin:$PATH"
-
 # See this for more Homebrew options: https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
 # export HOMEBREW_CASK_OPTS="--appdir=~/Applications --caskroom=/etc/Caskroom"
 # /usr/local/Caskroom
@@ -45,11 +36,6 @@ export PATH="/usr/local/Cellar/elm-format/0.5.2-alpha/bin:$PATH"
 # export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
 # Tell brew not to use my github credentials
 export HOMEBREW_NO_GITHUB_API=true
-
-# where are the default cheat sheets?
-export CHEAT_DEFAULT_DIR="/usr/local/lib/python3.7/site-packages/usr/share/cheat/"
-export CHEAT_COLORS=true
-export CHEAT_EDITOR="vi"
 
 # # Python Version Manager
 # export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3

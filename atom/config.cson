@@ -1,8 +1,12 @@
 "*":
+  "atom-package-deps":
+    ignored: [
+      "linter-eslint"
+    ]
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
-    highlightMatchingLineNumber: true  
+    highlightMatchingLineNumber: true
   core:
     telemetryConsent: "no"
     themes: [
@@ -13,6 +17,8 @@
     fontFamily: "hasklig, Menlo, Consolas, DejaVu Sans Mono, monospace"
     fontSize: 16
     scrollPastEnd: true
+  "exception-reporting":
+    userId: "0f061ee1-9d55-4acb-a826-7573eded5360"
   "linter-eslint":
     autofix:
       fixOnSave: true
@@ -28,3 +34,5 @@
     ]
   "linter-ui-default":
     showPanel: true
+  welcome:
+    showOnStartup: false

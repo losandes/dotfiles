@@ -8,4 +8,4 @@ rm $HOME/.atom/keymap.cson
 ln -s $DOT/atom/config.cson $HOME/.atom/config.cson
 ln -s $DOT/atom/keymap.cson $HOME/.atom/keymap.cson
 
-apm install --packages-file $DOT/atom/packages.list
+apm install --packages-file $DOT/atom/packages.txt

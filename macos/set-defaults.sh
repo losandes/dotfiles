@@ -1,17 +1,19 @@
-# Sets reasonable macOS defaults.
+# Sets my macOS defaults.
 #
-# Or, in other words, set shit how I like in macOS.
+# A lot is borrowed from:
+#   * [https://github.com/mathiasbynens/dotfiles/blob/master/.macos](Mathias Bynens Dotfiles)
+#   * [https://github.com/herrbischoff/awesome-macos-command-line/blob/master/README.md](Awesome macos Command Line)
 #
-# The original idea (and a couple settings) were grabbed from:
-#   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-#
-# Run ./set-defaults.sh and you'll be good to go.
+# Example Usage:
+# 	> ./set-defaults.sh
 
 if test ! "$(uname)" = "Darwin"
 	then
   exit 0
 fi
 
+
+echo "Setting macos defaults"
 # Set the timezone (see `sudo systemsetup -listtimezones` for other values)
 sudo systemsetup -settimezone "America/New_York" > /dev/null
 
@@ -21,11 +23,13 @@ defaults write com.apple.menuextra.battery ShowPercent YES
 # ============================================================================
 # AIRDROP
 
+echo "- Airdrop"
 # Use AirDrop over every interface. srsly this should be a default.
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 # ============================================================================
 # KEYBOARD & MOUSE
+echo "- Keyboard & Mouse"
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
@@ -57,6 +61,21 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 
 # ============================================================================
 # FINDER
+echo "- Finder"
+
+# Set the default location for new Finder windows
+# For other paths, use `PfLo` and `file:///full/path/here/`
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+# example setting it to desktop:
+# defaults write com.apple.finder NewWindowTarget -string "PfDe"
+# defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+# example setting it to documents:
+# defaults write com.apple.finder NewWindowTarget -string "PfDo"
+# defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Documents/"
+
+# Turn off recent items tracking
+defaults write -g NSNavRecentPlacesLimit -int 0
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
@@ -67,11 +86,23 @@ defaults write com.apple.screencapture type -string "png"
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# Finder: show hidden files
+defaults write com.apple.Finder AppleShowAllFiles -bool true
+
+# Finder: add quit option to Preferences
+# defaults write com.apple.finder QuitMenuItem -bool true;
+
 # Finder: show status bar
 # defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
+
+# Show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
@@ -84,12 +115,10 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Enable snap-to-grid for icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # Increase grid spacing for icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
 
 # Use column view view in all Finder windows by default
@@ -115,6 +144,7 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # ============================================================================
 # DOCK
+echo "- Dock"
 
 # Set the icon size of Dock items to 44 pixels
 defaults write com.apple.dock tilesize -int 44
@@ -124,6 +154,7 @@ defaults write com.apple.dock autohide -bool true
 
 # ============================================================================
 # SAFARI
+echo "- Safari"
 
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "https://www.startpage.com"
@@ -162,6 +193,7 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
 # ============================================================================
 # MAIL
+echo "- Mail"
 
 # Disable inline attachments (just show the icons)
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
@@ -169,6 +201,7 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 
 # ============================================================================
 # APP STORE
+echo "- App Store"
 
 # Enable the automatic update check
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
@@ -190,6 +223,7 @@ defaults write com.apple.commerce AutoUpdate -bool true
 
 # ============================================================================
 # MESSAGES
+echo "- Messages"
 
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
@@ -200,6 +234,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # ============================================================================
 # ALFRED
+echo "- Alfred"
 
 defaults write com.alfredapp.Alfred "appearance.themeuid" -string "alfred.theme.light"
 
@@ -242,6 +277,7 @@ defaults write com.alfredapp.Alfred "appearance.themeuid" -string "alfred.theme.
 
 # ============================================================================
 # OTHER
+echo "- Other"
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
@@ -254,8 +290,7 @@ for app in "Dock" \
 	"Mail" \
 	"Messages" \
 	"Safari" \
-	"SystemUIServer" \
-	"Terminal"; do
+	"SystemUIServer" ; do
 	killall "${app}" &> /dev/null
 done
 

@@ -2,6 +2,9 @@
 #
 # Run all dotfiles installers.
 
+INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null 2>&1 && pwd )"
+export DOT=$(echo $INSTALL_DIR | sed 's/\/_install//g')
+
 set -e
 
 cd "$(dirname $0)"/..
