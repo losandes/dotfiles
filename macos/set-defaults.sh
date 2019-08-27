@@ -6,12 +6,22 @@
 #
 # Example Usage:
 # 	> ./set-defaults.sh
+#
+#   > /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.systemuiserver.plist
+#   > Command: ls
+#
+#		defaults read ~/Library/Preferences/com.apple.Safari.plist
 
 if test ! "$(uname)" = "Darwin"
 	then
   exit 0
 fi
 
+open /System/Library/PreferencePanes/Security.PrefPane
+
+# In Macos Mojave and onward, Terminal has to be given FullDiskAccess privelages
+# to make changes to apps like Safari, Mail, etc.
+echo "\n\n\e[5m\e[33mIMPORTANT\n\e[0m\e[33mCheck the Security.PrefPane FullDiskAccess list to make sure Terminal is listed. If it's not, add it, restart terminal, and run $DOT/macos/set-defaults.sh again\e[0m\n\n"
 
 echo "Setting macos defaults"
 # Set the timezone (see `sudo systemsetup -listtimezones` for other values)
@@ -100,7 +110,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
@@ -153,18 +163,36 @@ defaults write com.apple.dock tilesize -int 44
 defaults write com.apple.dock autohide -bool true
 
 # ============================================================================
+# MENU BAR
+defaults write com.apple.systemuiserver menuExtras -array \
+	"/System/Library/CoreServices/Menu Extras/Clock.menu", \
+  "/System/Library/CoreServices/Menu Extras/Battery.menu", \
+  "/System/Library/CoreServices/Menu Extras/AirPort.menu", \
+  "/System/Library/CoreServices/Menu Extras/Displays.menu", \
+  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+
+# ============================================================================
 # SAFARI
 echo "- Safari"
+# defaults read ~/Library/Preferences/com.apple.Safari.plist
 
+# Set Safari's home page
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "https://www.startpage.com"
+
+# Use the homepage when opening new Safari windows
+defaults write com.apple.Safari NewWindowBehavior -int 0
+
+# Use the homepage when opening new Safari tabs
+defaults write com.apple.Safari NewTabBehavior -int 0
 
 # Show the full URL in the address bar (note: this still hides the scheme)
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 # Set up Safari for development.
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari IncludeDevelopMenu -int 1
+defaults write com.apple.Safari "WebKitPreferences.developerExtrasEnabled" -int 1
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
