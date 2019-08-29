@@ -278,6 +278,10 @@
           "label": "PRSC"
         },
         "1": {
+          "key": "SYS:POWER DOWN",
+          "label": "POWER"
+        },
+        "2": {
           "key": "#:U\"Mute\" + CONS\"Mute\"",
           "label": "MUT"
         }
@@ -322,6 +326,10 @@
         "0": {
           "key": "W",
           "label": "W"
+        },
+        "2": {
+          "key": "#:mouseOut( 0, 0, -1 )",
+          "label": "↓ x1"
         }
       },
       "triggers": null
@@ -494,6 +502,14 @@
         "0": {
           "key": "DELETE",
           "label": "DEL"
+        },
+        "1": {
+          "key": "#:U\"Mute\" + CONS\"Mute\"",
+          "label": "MUT"
+        },
+        "2": {
+          "key": "CONS:EJECT",
+          "label": "EJECT"
         }
       },
       "triggers": null
@@ -522,6 +538,10 @@
         "0": {
           "key": "A",
           "label": "A"
+        },
+        "2": {
+          "key": "#:mouseOut( 0, -1, 0 )",
+          "label": "← x1"
         }
       },
       "triggers": null
@@ -536,6 +556,10 @@
         "0": {
           "key": "S",
           "label": "S"
+        },
+        "2": {
+          "key": "#:mouseOut( 0, 0, 1 )",
+          "label": "↑ x1"
         }
       },
       "triggers": null
@@ -550,6 +574,10 @@
         "0": {
           "key": "D",
           "label": "D"
+        },
+        "2": {
+          "key": "#:mouseOut( 0, 1, 0 )",
+          "label": "→ x1"
         }
       },
       "triggers": null
@@ -564,6 +592,10 @@
         "0": {
           "key": "F",
           "label": "F"
+        },
+        "2": {
+          "key": "#:mouseOut( 1, 0, 0 )",
+          "label": "Btn 1"
         }
       },
       "triggers": null
@@ -578,6 +610,10 @@
         "0": {
           "key": "G",
           "label": "G"
+        },
+        "2": {
+          "key": "#:mouseOut( 2, 0, 0 )",
+          "label": "Btn 2"
         }
       },
       "triggers": null
@@ -692,6 +728,10 @@
           "label": "PGUP"
         },
         "1": {
+          "key": "#:U\"Volume Up\" + CONS\"Volume Up\"",
+          "label": "VOL+"
+        },
+        "2": {
           "key": "#:U\"Volume Up\" + CONS\"Volume Up\"",
           "label": "VOL+"
         }
@@ -880,6 +920,10 @@
         "1": {
           "key": "PAGEUP",
           "label": "PGUP"
+        },
+        "2": {
+          "key": "CONS:BRIGHTNESS INCREMENT",
+          "label": "SCRN+"
         }
       },
       "triggers": null
@@ -896,6 +940,10 @@
           "label": "PGDN"
         },
         "1": {
+          "key": "#:U\"Volume Down\" + CONS\"Volume Down\"",
+          "label": "VOL-"
+        },
+        "2": {
           "key": "#:U\"Volume Down\" + CONS\"Volume Down\"",
           "label": "VOL-"
         }
@@ -954,6 +1002,10 @@
         "0": {
           "key": "SPACE",
           "label": "[ ]"
+        },
+        "2": {
+          "key": "CONS:PAUSE PLAY",
+          "label": "PL/PS"
         }
       },
       "triggers": null
@@ -980,8 +1032,8 @@
       "h": 4,
       "layers": {
         "0": {
-          "key": "#:Layer[1]",
-          "label": "ƒ1"
+          "key": "#:Layer[2]",
+          "label": "ƒ2"
         }
       },
       "triggers": null
@@ -1000,6 +1052,10 @@
         "1": {
           "key": "HOME",
           "label": "HOME"
+        },
+        "2": {
+          "key": "CONS:SCAN PREVIOUS TRACK",
+          "label": "PREV"
         }
       },
       "triggers": null
@@ -1018,6 +1074,10 @@
         "1": {
           "key": "PAGEDOWN",
           "label": "PGDN"
+        },
+        "2": {
+          "key": "CONS:BRIGHTNESS DECREMENT",
+          "label": "SCRN-"
         }
       },
       "triggers": null
@@ -1036,6 +1096,10 @@
         "1": {
           "key": "END",
           "label": "END"
+        },
+        "2": {
+          "key": "CONS:SCAN NEXT TRACK",
+          "label": "NEXT"
         }
       },
       "triggers": null
@@ -1067,22 +1131,5 @@
     "Generator": "KIICONF 0.2"
   },
   "leds": [],
-  "macros": {
-    "0": [
-      {
-        "name": "Flash Mode",
-        "trigger": [
-          [
-            "#:Layer[1]",
-            "ESC"
-          ]
-        ],
-        "output": [
-          [
-            "#:flashMode()"
-          ]
-        ]
-      }
-    ]
-  }
+  "macros": {}
 }
