@@ -104,6 +104,10 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 > Examples
 > `:e %:h/filename` will create or open a file relative to this directory (`%` refers to the current file, `:h` is a modifier for its directory)
 
+### Buffers
+
+* `_n_ ctrl+shift+^` | switch to a numbered buffer (i.e. `4 ctrl+shift+^`)
+* `:bd`              | close the current buffer 
 
 ---
 
