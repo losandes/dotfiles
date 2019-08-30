@@ -47,4 +47,5 @@ git clone https://github.com/evturn/cosmic-barf.git ~/.vim/bundle/cosmic-barf
 
 # Using TypeScript?
 # git clone https://github.com/leafgarland/typescript-vim.git
-
+# git clone https://github.com/HerringtonDarkholme/yats.vim.git ~/.vim/bundle/yats.vim
+# Maybe checkout https://github.com/mhartington/nvim-typescript
