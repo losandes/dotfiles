@@ -18,6 +18,7 @@ fi
 # 'airblade/vim-gitgutter': adds a column to the left margin indicating lines changed in the active file since the last Git revision
 # 'mattn/emmet-vim': a  completion tool for HTML, CSS and JavaScript which allows you to make dynamic completions from a shorthand expression
 # 'ArtBIT/vim-modularvimrc': Load directory specific .vimrc files (including the ones from parent directories)
+# 'mhinz/vim-startify': adds a start page with quotes and recently opened files
 
 git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/vim-sensible
 git clone https://github.com/tpope/vim-commentary ~/.vim/bundle/vim-commentary
@@ -30,6 +31,7 @@ git clone https://github.com/rakr/vim-one ~/.vim/bundle/vim-one
 git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
 git clone https://github.com/junegunn/goyo.vim.git ~/.vim/bundle/goyo.vim
 git clone https://github.com/terryma/vim-multiple-cursors.git ~/.vim/bundle/vim-multiple-cursors
+git clone https://github.com/mhinz/vim-startify.git ~/.vim/bundle/vim-startify
 # brew update
 # brew install fzf
 # $(brew --prefix)/opt/fzf/install

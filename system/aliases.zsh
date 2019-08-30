@@ -6,7 +6,7 @@ export PROJECTS="$HOME/src"
 export FZF_DEFAULT_COMMAND='rg --files --smart-case'
 
 # set my editor (for use with bin/e)
-export EDITOR=vim
+export EDITOR=nvim
 
 # always start tmux in 256 color mode
 alias tmux="TERM=screen-256color-bce tmux"
