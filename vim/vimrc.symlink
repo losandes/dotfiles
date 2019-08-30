@@ -11,6 +11,7 @@ set tabstop=4                                    " show existing tab with 2 spac
 set shiftwidth=4                                 " when indenting with '>', use 2
 set expandtab                                    " On pressing tab, insert 2 spaces
 set ruler                                        " add a ruler to the command bar
+set number                                       " Show the absolute line number instead of 0 if relativenumber is also set
 set relativenumber                               " show line numbers relative to the cursor
 set numberwidth=6                                " set the width of the line numbers
 set scrolloff=10                                 " scroll the window so we can always see 10 lines around the cursor

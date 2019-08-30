@@ -1,8 +1,8 @@
 [color "diff"]
-  meta = white
-  frag = cyan
-  old = green
-  new = red
+    meta = white
+    frag = cyan
+    old = red
+    new = green
 [core]
-  excludesfile = ~/.gitignore
-  editor = vim
+    excludesfile = ~/.gitignore
+    editor = vim
