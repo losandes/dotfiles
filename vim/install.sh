@@ -19,6 +19,7 @@ fi
 # 'mattn/emmet-vim': a  completion tool for HTML, CSS and JavaScript which allows you to make dynamic completions from a shorthand expression
 # 'ArtBIT/vim-modularvimrc': Load directory specific .vimrc files (including the ones from parent directories)
 # 'mhinz/vim-startify': adds a start page with quotes and recently opened files
+# 'othree/yajs.vim': better JavaScript syntax highlighting (don't use on slow machines)
 
 if [ ! -d ~/.vim/bundle/vim-sensible ]; then
   git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/vim-sensible
@@ -55,6 +56,9 @@ if [ ! -d ~/.vim/bundle/vim-multiple-cursors ]; then
 fi
 if [ ! -d ~/.vim/bundle/vim-startify ]; then
   git clone https://github.com/mhinz/vim-startify.git ~/.vim/bundle/vim-startify
+fi
+if [ ! -d ~/.vim/bundle/yajs.vim ]; then
+  git clone https://github.com/othree/yajs.vim.git ~/.vim/bundle/yajs.vim
 fi
 # brew update
 # brew install fzf
