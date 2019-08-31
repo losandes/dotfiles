@@ -11,6 +11,7 @@ set tabstop=2                                    " show existing tab with 2 spac
 set shiftwidth=2                                 " when indenting with '>', use 2
 set expandtab                                    " On pressing tab, insert 2 spaces
 set ruler                                        " add a ruler to the command bar
+set number                                       " Show the absolute line number instead of 0 if relativenumber is also set
 set relativenumber                               " show line numbers relative to the cursor
 set numberwidth=6                                " set the width of the line numbers
 set scrolloff=10                                 " scroll the window so we can always see 10 lines around the cursor
@@ -76,18 +77,18 @@ vmap <C-c> :w !pbcopy<CR><CR>
 let g:ale_fix_on_save=1        " automatically format on save
 let g:ale_linters = { 
 \  'javascript': ['eslint'],
-\  'typescript': ['tsserver', 'tslint']
+\  'typescript': ['eslint']
 \}
 
 let g:ale_fixers = {
-\  'javascript': ['prettier', 'eslint'],
-\  'jsx': ['prettier', 'eslint'],
+\  'javascript': ['eslint'],
+\  'jsx': ['eslint'],
 \  'flow': ['prettier'],
-\  'typescript': ['tslint'],
+\  'typescript': ['eslint'],
 \  'css': ['prettier'],
 \  'less': ['prettier'],
 \  'scss': ['prettier'],
-\  'json': ['prettier'],
+\  'json': ['prettier', 'eslint'],
 \  'graphql': ['prettier'],
 \  'markdown': ['prettier']
 \}

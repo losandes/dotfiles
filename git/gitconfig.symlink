@@ -10,3 +10,8 @@
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
+[color "diff"]
+  meta = white
+  frag = cyan
+  old = red
+  new = green 

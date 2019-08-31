@@ -68,6 +68,27 @@ See `hint journey` _=> ## Connecting to Aurora DB_
 
 ## Verification (Postgres)
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+TODO: 
+select exists is not the correct way to verify
+
+they will always verify to true
+
+exists will pass even on an empty result set
+
+`select 1/count(*)` is the correct way
+
+and a simpler way to verify column existance
+
+```sql
+BEGIN;
+
+SELECT is_active FROM my_schema.departments;
+
+ROLLBACK;
+```
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 ### Verifying Roles
 
 ```sql

@@ -33,3 +33,5 @@ docker ps -a
 docker stop [PROCESS_ID]
 ```
 
+## Accessing the host from within a container
+-To access the host machine from a running docker container you can resolve the host via `docker.for.mac.localhost`

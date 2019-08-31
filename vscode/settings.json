@@ -1,0 +1,25 @@
+{
+    "editor.autoClosingBrackets": false,
+    "editor.codeLens": false,
+    "editor.fontSize": 16,
+    "editor.formatOnPaste": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.tabSize": 4,
+    "explorer.autoReveal": false,
+    "files.trimTrailingWhitespace": true,
+    "javascript.suggestionActions.enabled": false,
+    "window.zoomLevel": 0,
+    // Hide the extra left-left nav bar
+    "workbench.activityBar.visible": false,
+    "workbench.list.horizontalScrolling": true,
+    // Hide the file list from the left nav
+    "explorer.openEditors.visible": 0,
+    "workbench.iconTheme": "file-icons",
+    "workbench.startupEditor": "welcomePage",
+    "editor.fontFamily": "hasklig, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true
+}

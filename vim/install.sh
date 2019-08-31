@@ -18,6 +18,7 @@ fi
 # 'airblade/vim-gitgutter': adds a column to the left margin indicating lines changed in the active file since the last Git revision
 # 'mattn/emmet-vim': a  completion tool for HTML, CSS and JavaScript which allows you to make dynamic completions from a shorthand expression
 # 'ArtBIT/vim-modularvimrc': Load directory specific .vimrc files (including the ones from parent directories)
+# 'mhinz/vim-startify': adds a start page with quotes and recently opened files
 
 if [ ! -d ~/.vim/bundle/vim-sensible ]; then
   git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/vim-sensible
@@ -52,6 +53,9 @@ fi
 if [ ! -d ~/.vim/bundle/vim-multiple-cursors ]; then
   git clone https://github.com/terryma/vim-multiple-cursors.git ~/.vim/bundle/vim-multiple-cursors
 fi
+if [ ! -d ~/.vim/bundle/vim-startify ]; then
+  git clone https://github.com/mhinz/vim-startify.git ~/.vim/bundle/vim-startify
+fi
 # brew update
 # brew install fzf
 # $(brew --prefix)/opt/fzf/install
@@ -78,4 +82,5 @@ if [ ! -d ~/.vim/bundle/cosmic-barf ]; then
 fi
 
 # Using TypeScript?
-# git clone https://github.com/leafgarland/typescript-vim.git
+# git clone https://github.com/HerringtonDarkholme/yats.vim.git ~/.vim/bundle/yats.vim
+# Maybe checkout https://github.com/mhartington/nvim-typescript

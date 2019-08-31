@@ -16,6 +16,7 @@ Other	-------rwx
 |------------------------|------------|-------------|
 | `chmod 700 [filename]` | -rwx------ | Grant full permissions to the owner, and lock everyone else out |
 | `chmod 755 [filename]` | -rwxr-xr-x | Grant full access to the owner, and read+execute to everyone else |
+| `chmod 766 [filename]` | -rwxrw-rw- | Grant full permissions to the owner, and read+write to everyone else |
 | `chmod 777 [filename]` | -rwxrwxrwx | (avoid) Grant full access to everyone |
 | `chmod +x [filename]`  | -rwx--x--x | Grant full permissions to the owner, and allow everyone else to execute, but not read or write |
 | `chmod 600 [filename]` | -rw------- | Grant read+write to the owner, and lock everyone else out |
