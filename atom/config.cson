@@ -1,8 +1,4 @@
 "*":
-  "atom-package-deps":
-    ignored: [
-      "linter-eslint"
-    ]
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
