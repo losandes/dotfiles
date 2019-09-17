@@ -2,7 +2,7 @@ VIM
 ===
 
 ## Editor Commands
-Vim is an editor to create or edit a text file. There are two modes in vim. One is the command mode and another is the insert mode. In the command mode, user can move around the file, delete text, etc. In the insert mode, user can insert text.
+Vim is an editor to create or edit a text file. There are two modes in vim. One is the command mode and another is the insert mode. In the command mode, user can move around the file, delete text, etc. In the insert mode, user can insert text. Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/)
 
 ### Changing mode from one to another
 * From command mode to insert mode, type `a/A/i/I/o/O` (see details below).
@@ -16,17 +16,18 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 * esc       | exit current mode to Normal mode
 
 #### Navigation
-* `h`           | left <-
-* `l`           | right ->
-* `j`           | down
-* `k`           | up
-* _n_ _letter_  | navigate _n_ times in _letter_ direction (i.e. 10j will navigate down 10 lines)
-* `gg`          | scroll to top of the file
-* `G`           | scroll to the bottom of the file
-* `0`           | scroll to the beginning of the current line
-* `$`           | scroll to the end of the current line
-* `w`           | Forward one word
-* `b`           | Backward one word
+* `h`            | left <-
+* `l`            | right ->
+* `j`            | down
+* `k`            | up
+* `5{h|j|k|l}`   | navigate _n_ times (5 in this example) in _letter_ direction (i.e. 10j will navigate down 10 lines)
+* `5G`           | goto line _n_ (5 in this example)
+* `gg`           | scroll to top of the file
+* `G`            | scroll to the bottom of the file
+* `0`            | scroll to the beginning of the current line
+* `$`            | scroll to the end of the current line
+* `w`            | Forward one word
+* `b`            | Backward one word
 
 > http://vim.wikia.com/wiki/Moving_around
 
@@ -43,6 +44,7 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 * `yw` yank from cursor to end of current word
 * `5yy` yank 5 lines
 * `5"+yy` yank 5 lines to the OS clipboard
+* `mk` to mark beginning of selection, then navigate to end of selection and `y'k` to copy a block
 
 ### Paste (used after delete or yank to recover lines.)
 
@@ -54,7 +56,7 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 * `J` Join next line down to the end of the current line
 * `"+p` paste from the OS clipboard
 
-#### Delete
+#### Delete / Cut
 
 * `x` Delete character
 * `dw` Delete word from cursor on
@@ -63,6 +65,7 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 * `d$` Delete to end of line
 * `d^` (d caret, not CTRL d) Delete to beginning of line
 * `d` Delete the selection (i.e. what you selected with `shift+v`, or `v`)
+* `mk` to mark beginning of selection, then navigate to end of selection and `d'k` to delete a block
 
 #### Replace
 
@@ -99,7 +102,7 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 * `w`       | save the file
 * `write`   | save the file
 * `x`       | save the file AND quit
-* `e`       | open a file
+s `e`       | open a file
 
 > Examples
 > `:e %:h/filename` will create or open a file relative to this directory (`%` refers to the current file, `:h` is a modifier for its directory)
@@ -107,7 +110,23 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 ### Buffers
 
 * `_n_ ctrl+shift+^` | switch to a numbered buffer (i.e. `4 ctrl+shift+^`)
-* `:bd`              | close the current buffer 
+* `:bd`              | close the current buffer
+
+### Tabs
+
+* `:tabedit`         | open a new tab
+* `gt`               | next tab
+* `gT`               | previous tab
+* `ngt`              | goto tab
+* `:tabclose`        | close current tab
+* `:tabonly`         | close other tabs
+* `:tabs`            | list tabs
+
+### Bookmarks
+
+* `m{lowercaseletter}`  | add a bookmark, assigned to _lowercaseletter_
+* `:marks`              | show all bookmarks
+* `\`{lowercaseletter}` | navigate to bookmarks assigned to _lowercaseletter_
 
 ---
 

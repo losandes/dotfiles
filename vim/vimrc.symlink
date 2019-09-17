@@ -63,8 +63,6 @@ set rtp+=/usr/local/opt/fzf
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call fzf#run({'sink': 'split'}) | endif
 
-" Map Ctrl+b to NERDTreeToggle
-map <C-b> :NERDTreeToggle<CR>
 " Map Ctrl+t to :Files
 map <C-t> :Files<CR>
 " Map cut and copy keystrokes for visual mode

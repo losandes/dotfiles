@@ -242,8 +242,8 @@
       "h": 4,
       "layers": {
         "0": {
-          "key": "`",
-          "label": "`"
+          "key": "\\",
+          "label": "\\"
         },
         "1": {
           "key": "PRINTSCREEN",
@@ -260,8 +260,8 @@
       "h": 4,
       "layers": {
         "0": {
-          "key": "\\",
-          "label": "\\"
+          "key": "END",
+          "label": "END"
         }
       },
       "triggers": null
@@ -274,8 +274,8 @@
       "h": 4,
       "layers": {
         "0": {
-          "key": "PRINTSCREEN",
-          "label": "PRSC"
+          "key": "`",
+          "label": "`"
         },
         "1": {
           "key": "SYS:POWER DOWN",
@@ -414,6 +414,10 @@
         "0": {
           "key": "I",
           "label": "I"
+        },
+        "1": {
+          "key": "UP",
+          "label": "↑"
         }
       },
       "triggers": null
@@ -642,6 +646,10 @@
         "0": {
           "key": "J",
           "label": "J"
+        },
+        "1": {
+          "key": "LEFT",
+          "label": "←"
         }
       },
       "triggers": null
@@ -656,6 +664,10 @@
         "0": {
           "key": "K",
           "label": "K"
+        },
+        "1": {
+          "key": "DOWN",
+          "label": "↓"
         }
       },
       "triggers": null
@@ -670,6 +682,10 @@
         "0": {
           "key": "L",
           "label": "L"
+        },
+        "1": {
+          "key": "RIGHT",
+          "label": "→"
         }
       },
       "triggers": null
@@ -1106,7 +1122,8 @@
     }
   ],
   "custom": {
-    "0": "\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n# Macro 'Flash Mode'\nU\"FUNCTION1\" + U\"ESC\" : flashMode();\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n"
+    "0": "\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n# Macro 'Flash Mode'\nU\"FUNCTION1\" + U\"ESC\" : flashMode();\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n",
+    "1": "\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n# Macro 'New Macro'\nU\"M\" + U\"E\" : U\"M\", U\"O\", U\"D\";\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n# Macro 'module.exports'\nU\"M\" + U\",\" : U\"M\", U\"O\", U\"D\", U\"U\", U\"L\", U\"E\", U\".\", U\"E\", U\"X\", U\"P\", U\"O\", U\"R\", U\"T\", U\"S\", U\"SPACE\", U\"=\", U\"SPACE\", U\"LSHIFT\" + U\"[\", U\"ENTER\", U\"N\", U\"A\", U\"M\", U\"E\", U\"LSHIFT\" + U\";\", U\"SPACE\", U\"'\", U\"N\", U\"A\", U\"M\", U\"E\", U\"'\", U\",\", U\"ENTER\", U\"F\", U\"A\", U\"C\", U\"T\", U\"O\", U\"R\", U\"Y\", U\"LSHIFT\" + U\";\", U\"SPACE\", U\"LSHIFT\" + U\"9\", U\"LSHIFT\" + U\"0\", U\"SPACE\", U\"=\", U\"LSHIFT\" + U\".\", U\"SPACE\", U\"LSHIFT\" + U\"[\", U\"ENTER\", U\"'\", U\"U\", U\"S\", U\"E\", U\"SPACE\", U\"S\", U\"T\", U\"R\", U\"I\", U\"C\", U\"T\", U\"'\", U\"ENTER\", U\"LSHIFT\" + U\"]\", U\"ENTER\", U\"LSHIFT\" + U\"]\", U\"ENTER\";\n# Macro 'arrow-func'\nU\"0\" + U\"9\" : U\"LSHIFT\" + U\"9\", U\"LSHIFT\" + U\"0\", U\"SPACE\", U\"=\", U\"LSHIFT\" + U\".\", U\"SPACE\", U\"LSHIFT\" + U\"[\", U\"LSHIFT\" + U\"]\", U\"LEFT\", U\"ENTER\";\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n"
   },
   "animations": {
     "all_on": {
@@ -1131,5 +1148,105 @@
     "Generator": "KIICONF 0.2"
   },
   "leds": [],
-  "macros": {}
+  "macros": {
+    "0": [],
+    "1": [{
+      "name": "module.exports",
+      "trigger": [
+        [
+          "M",
+          ","
+        ]
+      ],
+      "output": [
+        ["M"],
+        ["O"],
+        ["D"],
+        ["U"],
+        ["L"],
+        ["E"],
+        ["."],
+        ["E"],
+        ["X"],
+        ["P"],
+        ["O"],
+        ["R"],
+        ["T"],
+        ["S"],
+        ["SPACE"],
+        ["="],
+        ["SPACE"],
+        ["LSHIFT", "["],
+        ["ENTER"],
+        ["N"],
+        ["A"],
+        ["M"],
+        ["E"],
+        ["LSHIFT", ";"],
+        ["SPACE"],
+        ["'"],
+        ["N"],
+        ["A"],
+        ["M"],
+        ["E"],
+        ["'"],
+        [","],
+        ["ENTER"],
+        ["F"],
+        ["A"],
+        ["C"],
+        ["T"],
+        ["O"],
+        ["R"],
+        ["Y"],
+        ["LSHIFT", ";"],
+        ["SPACE"],
+        ["LSHIFT", "9"],
+        ["LSHIFT", "0"],
+        ["SPACE"],
+        ["="],
+        ["LSHIFT", "."],
+        ["SPACE"],
+        ["LSHIFT", "["],
+        ["ENTER"],
+        ["'"],
+        ["U"],
+        ["S"],
+        ["E"],
+        ["SPACE"],
+        ["S"],
+        ["T"],
+        ["R"],
+        ["I"],
+        ["C"],
+        ["T"],
+        ["'"],
+        ["ENTER"],
+        ["LSHIFT", "]"],
+        ["ENTER"],
+        ["LSHIFT", "]"],
+        ["ENTER"]
+      ]
+    }, {
+      "name": "arrow-func",
+      "trigger": [
+        [
+          "0",
+          "9"
+        ]
+      ],
+      "output": [
+        ["LSHIFT", "9" ],
+        ["LSHIFT", "0" ],
+        ["SPACE"],
+        ["="],
+        ["LSHIFT", "."],
+        ["SPACE"],
+        ["LSHIFT", "["],
+        ["LSHIFT", "]"],
+        ["LEFT"],
+        ["ENTER"]
+      ]
+    }]
+  }
 }

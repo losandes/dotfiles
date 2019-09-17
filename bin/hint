@@ -27,12 +27,12 @@ if [ "$TOOL" == "-l" ]; then
 fi
 
 if [ -s $USER_FILE ] || [ "$ADD_OPTION" == "-a" ]; then
-  vi $USER_FILE 2>/dev/null
+  e $USER_FILE 2>/dev/null
 else
   read -r -p "${3:-No hints for ${TOOL} were found. Would you like to create a new hint? [y/N]} " response
     case $response in
       [yY][eE][sS]|[yY])
-        vi $USER_FILE 2>/dev/null
+        e $USER_FILE 2>/dev/null
         ;;
       *)
         echo "ok"
