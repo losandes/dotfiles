@@ -6,7 +6,7 @@
   core:
     telemetryConsent: "no"
     themes: [
-      "native-ui"
+      "seti-ui"
       "seti-syntax"
     ]
   editor:
@@ -29,5 +29,9 @@
     ]
   "linter-ui-default":
     showPanel: true
+  "seti-ui":
+    compactView: true
+    hideDocumentTitle: true
+    hideProjectTab: true
   welcome:
     showOnStartup: false
