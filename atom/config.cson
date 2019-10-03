@@ -1,11 +1,12 @@
 "*":
   "autocomplete-plus":
-    autoActivationDelay: 100
+    autoActivationDelay: 300
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
     highlightMatchingLineNumber: true
+    wrapSelectionsInBrackets: false
   core:
     telemetryConsent: "no"
     themes: [
@@ -16,6 +17,9 @@
     fontFamily: "hasklig, Menlo, Consolas, DejaVu Sans Mono, monospace"
     fontSize: 16
     scrollPastEnd: true
+    preferredLineLength: 81
+    tabLength: 2
+    tabType: "soft"
   "exception-reporting":
     userId: "0f061ee1-9d55-4acb-a826-7573eded5360"
   "linter-eslint":
