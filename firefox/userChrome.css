@@ -1,0 +1,14 @@
+#nav-bar { /* main toolbar */
+  -moz-box-ordinal-group: 0 !important;
+  box-shadow: none !important;
+}
+#TabsToolbar { /* tab bar */
+  -moz-box-ordinal-group: 2 !important;
+}
+#PersonalToolbar { /* bookmarks toolbar */
+  -moz-box-ordinal-group: 3 !important;
+  padding-top: 0 !important;
+}
+.browserContainer > findbar { /* find bar */
+  -moz-box-ordinal-group: 0 !important;
+}
