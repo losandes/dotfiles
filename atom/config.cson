@@ -16,8 +16,8 @@
   editor:
     fontFamily: "hasklig, Menlo, Consolas, DejaVu Sans Mono, monospace"
     fontSize: 16
-    scrollPastEnd: true
     preferredLineLength: 81
+    scrollPastEnd: true
     tabLength: 2
     tabType: "soft"
   "exception-reporting":

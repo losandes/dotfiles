@@ -128,6 +128,11 @@ s `e`       | open a file
 * `:marks`              | show all bookmarks
 * `\`{lowercaseletter}` | navigate to bookmarks assigned to _lowercaseletter_
 
+### Printing Output
+You can print the buffer to PDF (*.ps) like so:\
+
+* `:ha > %.ps`, or `:hardcopy > %.ps`
+
 ---
 
 #### Text Entry Commands (Used to start text entry)
