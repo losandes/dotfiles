@@ -16,3 +16,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 
 # for checking shasums
 alias sha256sum="shasum -a 256"
+
+# for powershell
+alias pshell=pwsh
+alias powershell=pwsh

@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Converts \n speparated text into markdown table cells
+#
+# From: https://github.com/interstateone/dotfiles/blob/master/osx/bin/lines-to-markdown-table-cells
+# Example:
+#   pbpaste | lines-to-md-table-cells | pbcopy
+
+IFS=$'\n' read -d '' -r -a files
+number_of_files=${#files[@]}
+
+header="|"
+separator="|"
+cells="|"
+
+start=0
+for (( index=$start; index<$number_of_files; index++ )); do
+    header+=" header |"
+    separator+=" ------ |"
+    cells+=" ${files[$index]} |"
+done
+
+echo $header
+echo $separator
+echo $cells
