@@ -71,6 +71,7 @@ mas "Wipr", id: 1320666476
 # cask "java"
 # cask "microsoft-azure-storage-explorer"
 # cask "mongo-management-studio"
+# case "netnewswire"
 # cask "ngrok"
 # cask "postico"
 # cask "postman"

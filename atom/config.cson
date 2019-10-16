@@ -36,6 +36,7 @@
     ]
   "linter-ui-default":
     showPanel: true
+  "markdown-pdf": {}
   "seti-ui":
     compactView: true
     hideDocumentTitle: true

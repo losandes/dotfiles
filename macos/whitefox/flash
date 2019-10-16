@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "\n\nPress 'fn+esc' to enter DFU mode\n\n"
+dfu-util -D whitefox_mac_losandes.bin
