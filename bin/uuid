@@ -42,16 +42,23 @@ const findMatch = (switchesOrOptions, argValue, idx, args) => {
   return false
 }
 
+let count = 1
 let length = 0
 let useHyphens = true
 let useUpper = false
 let prefix = ''
 
 process.argv.forEach((value, idx, args) => {
+  const carg = findMatch(Option('c', 'count'), value, idx, args)
   const harg = findMatch(Option('h', 'no-hyphens'), value, idx, args)
   const larg = findMatch(Option('l', 'length'), value, idx, args)
   const parg = findMatch(Option('p', 'prefix'), value, idx, args)
   const uarg = findMatch(Option('u', 'upper'), value, idx, args)
+
+  if (carg) {
+    const c = parseInt(carg)
+    if (!isNaN(c) && c > 0) count = c
+  }
 
   if (harg) useHyphens = false
 
@@ -66,6 +73,7 @@ process.argv.forEach((value, idx, args) => {
 
   if (value === 'help') {
     console.log(`
+-c, --count       the number of ids to generate
 -h, --no-hyphens  print a uuid without hyphens
 -l, --length      print a random id of the given length (the next arg: \`uuid -l 8\`)
 -p, --prefix      prepend the id with the given prefix (the next arg: \`uuid -p MYPREFIX-\`)
@@ -89,18 +97,20 @@ const uuid = () => createRandomString('xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx')
 const uuidSansHyphens = () => createRandomString('xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx')
 const randomId = (length) => createRandomString(new Array(length + 1).join('x'))
 
-let id
+for (let i = 0; i < count; i += 1) {
+  let id
 
-if (length) {
-  id = randomId(length)
-} else if (useHyphens) {
-  id = uuid()
-} else {
-  id = uuidSansHyphens()
-}
+  if (length) {
+    id = randomId(length)
+  } else if (useHyphens) {
+    id = uuid()
+  } else {
+    id = uuidSansHyphens()
+  }
 
-if (useUpper) {
-  console.log(`${prefix}${id.toUpperCase()}`)
-} else {
-  console.log(`${prefix}${id}`)
+  if (useUpper) {
+    console.log(`${prefix}${id.toUpperCase()}`)
+  } else {
+    console.log(`${prefix}${id}`)
+  }
 }
