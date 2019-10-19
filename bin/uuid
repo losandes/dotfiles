@@ -97,7 +97,7 @@ let toChosenCase = (input) => input
 
 process.argv.forEach((value, idx, args) => {
   const carg = findMatch(Option('c', 'count'), value, idx, args)
-  const harg = findMatch(Option('h', 'no-hyphens'), value, idx, args)
+  const harg = findMatch(Option('nh', 'no-hyphens'), value, idx, args)
   const larg = findMatch(Option('l', 'length'), value, idx, args)
   const parg = findMatch(Option('p', 'prefix'), value, idx, args)
   const uarg = findMatch(Option('u', 'upper'), value, idx, args)
@@ -118,12 +118,12 @@ process.argv.forEach((value, idx, args) => {
 
   if (uarg) toChosenCase = (input) => input.toUpperCase()
 
-  if (value === 'help') {
+  if (value === 'help' || value === '-h' || value === '--help') {
     console.log(`
 Generates a UUID (V4), or a random string and prints it to the console
 
 -c, --count       the number of ids to generate
--h, --no-hyphens  print uuid(s) without hyphens
+-nh, --no-hyphens  print uuid(s) without hyphens
 -l, --length      print random id(s) of the given length
                     - must be divisible to a whole integer by 2
                     - expects length to be the next arg: \`uuid -l 8\`
@@ -136,7 +136,7 @@ Usage:
      bebb22dc-17da-42b8-aed9-eba4ebea0fee
    $ uuid --upper --no-hyphens
      72CBA69EC29842B0AA9FA4E06CF10648
-   $ uuid -u -h
+   $ uuid -u -nh
      72CBA69EC29842B0AA9FA4E06CF10648
    $ uuid --length 8 --prefix u --count 10
      u21e9b74e
