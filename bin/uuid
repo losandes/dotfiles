@@ -89,78 +89,107 @@ const findMatch = (switchesOrOptions, argValue, idx, args) => {
   return false
 }
 
-let count = 1
-let length = 0
-let hyphen = '-'
-let prefix
-let toChosenCase = (input) => input
-
-process.argv.forEach((value, idx, args) => {
-  const carg = findMatch(Option('c', 'count'), value, idx, args)
-  const harg = findMatch(Option('nh', 'no-hyphens'), value, idx, args)
-  const larg = findMatch(Option('l', 'length'), value, idx, args)
-  const parg = findMatch(Option('p', 'prefix'), value, idx, args)
-  const uarg = findMatch(Option('u', 'upper'), value, idx, args)
-
-  if (carg) {
-    const c = parseInt(carg)
-    if (!isNaN(c) && c > 0) count = c
-  }
-
-  if (harg) hyphen = null
-
-  if (larg) {
-    const l = parseInt(larg)
-    if (!isNaN(l)) length = l
-  }
-
-  if (parg) prefix = parg
-
-  if (uarg) toChosenCase = (input) => input.toUpperCase()
-
-  if (value === 'help' || value === '-h' || value === '--help') {
-    console.log(`
+const printHelp = () => console.log(`
 Generates a UUID (V4), or a random string and prints it to the console
 
 -c,  --count       the number of ids to generate
 -nh, --no-hyphens  print uuid(s) without hyphens
 -l,  --length      print random id(s) of the given length
-                     - must be divisible to a whole integer by 2
-                     - expects length to be the next arg: \`uuid -l 8\`
+                   - must be divisible to a whole integer by 2
+                   - expects length to be the next arg: \`uuid -l 8\`
 -p,  --prefix      prepend the id with the given prefix
-                     - expects prefix to be the next arg: \`uuid -p MYPREFIX-\`
+                   - expects prefix to be the next arg: \`uuid -p MYPREFIX-\`
 -u,  --upper       print id(s) in upper case (lower case is default)
 
 Usage:
-   $ uuid
-     bebb22dc-17da-42b8-aed9-eba4ebea0fee
-   $ uuid --upper --no-hyphens
-     72CBA69EC29842B0AA9FA4E06CF10648
-   $ uuid -u -nh
-     72CBA69EC29842B0AA9FA4E06CF10648
-   $ uuid --length 8 --prefix u --count 10
-     u21e9b74e
-     uf3621f01
-     ua33a6557
-     u727811cb
-     u6376079b
-     u8ec107ef
-     u6a6a3913
-     u2ea79524
-     u32f566fc
-     u595b8295
-   $ uuid -l 8 -p u -c 10
-     _prints same as previous example_
+ $ uuid
+   bebb22dc-17da-42b8-aed9-eba4ebea0fee
+ $ uuid --upper --no-hyphens
+   72CBA69EC29842B0AA9FA4E06CF10648
+ $ uuid -u -nh
+   72CBA69EC29842B0AA9FA4E06CF10648
+ $ uuid --length 8 --prefix u --count 10
+   u21e9b74e
+   uf3621f01
+   ua33a6557
+   u727811cb
+   u6376079b
+   u8ec107ef
+   u6a6a3913
+   u2ea79524
+   u32f566fc
+   u595b8295
+ $ uuid -l 8 -p u -c 10
+   _prints same as previous example_
 `) // /console.log(help)
 
+function Options () {
+  let count = 1
+  let length = 0
+  let hyphen = '-'
+  let prefix
+  let toChosenCase = (input) => input
+  let isHelp = false
+
+  process.argv.forEach((value, idx, args) => {
+    const carg = findMatch(Option('c', 'count'), value, idx, args)
+    const harg = findMatch(Option('nh', 'no-hyphens'), value, idx, args)
+    const larg = findMatch(Option('l', 'length'), value, idx, args)
+    const parg = findMatch(Option('p', 'prefix'), value, idx, args)
+    const uarg = findMatch(Option('u', 'upper'), value, idx, args)
+
+    if (carg) {
+      const c = parseInt(carg)
+      if (!isNaN(c) && c > 0) count = c
+    }
+
+    if (harg) hyphen = null
+
+    if (larg) {
+      const l = parseInt(larg)
+      if (!isNaN(l)) length = l
+    }
+
+    if (parg) prefix = parg
+
+    if (uarg) toChosenCase = (input) => input.toUpperCase()
+
+    if (value === 'help' || value === '-h' || value === '--help')
+      isHelp = true
+  })
+
+  return Object.freeze({
+    count,
+    length,
+    hyphen,
+    prefix,
+    toChosenCase,
+    isHelp
+  })
+}
+
+function main () {
+  const {
+    count,
+    length,
+    hyphen,
+    prefix,
+    toChosenCase,
+    isHelp
+  } = new Options()
+
+  if (isHelp) {
+    printHelp()
     process.exit(0)
   }
-})
 
-const makeId = length > 0
-  ? makeRandomString(prefix, length, toChosenCase)
-  : makeUuidV4(hyphen, toChosenCase)
+  const makeId = length > 0
+    ? makeRandomString(prefix, length, toChosenCase)
+    : makeUuidV4(hyphen, toChosenCase)
 
-for (let i = 0; i < count; i += 1) {
-  console.log(makeId())
+  for (let i = 0; i < count; i += 1) {
+    console.log(makeId())
+  }
 }
+
+main()
