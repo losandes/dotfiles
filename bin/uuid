@@ -62,8 +62,8 @@ function Swatch (name) {
 
 function Option (lowercaseLetter, name) {
   return {
-    switch: `-${lowercaseLetter}`.toUpperCase(),
-    option: `--${name}`.toUpperCase()
+    switch: Switch(lowercaseLetter).switch,
+    option: Swatch(name).switch
   }
 }
 
