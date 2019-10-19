@@ -52,11 +52,11 @@ const makeUuidV4 = (hyphen, toChosenCase) => () => {
 
 // args ========================================================================
 
-function Switch (lowercaseLetter) { // eslint-disable-line no-unused-vars
+function Switch (lowercaseLetter) {
   return { switch: `-${lowercaseLetter}`.toUpperCase() }
 }
 
-function Swatch (name) { // eslint-disable-line no-unused-vars
+function Swatch (name) {
   return { switch: `--${name}`.toUpperCase() }
 }
 
