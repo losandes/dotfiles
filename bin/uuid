@@ -122,14 +122,14 @@ process.argv.forEach((value, idx, args) => {
     console.log(`
 Generates a UUID (V4), or a random string and prints it to the console
 
--c, --count       the number of ids to generate
+-c,  --count       the number of ids to generate
 -nh, --no-hyphens  print uuid(s) without hyphens
--l, --length      print random id(s) of the given length
-                    - must be divisible to a whole integer by 2
-                    - expects length to be the next arg: \`uuid -l 8\`
--p, --prefix      prepend the id with the given prefix
-                    - expects prefix to be the next arg: \`uuid -p MYPREFIX-\`
--u, --upper       print id(s) in upper case (lower case is default)
+-l,  --length      print random id(s) of the given length
+                     - must be divisible to a whole integer by 2
+                     - expects length to be the next arg: \`uuid -l 8\`
+-p,  --prefix      prepend the id with the given prefix
+                     - expects prefix to be the next arg: \`uuid -p MYPREFIX-\`
+-u,  --upper       print id(s) in upper case (lower case is default)
 
 Usage:
    $ uuid
