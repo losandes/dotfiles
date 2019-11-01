@@ -3,7 +3,6 @@
 # Finds the process listening on a given port
 #
 # USAGE:
-#    $ whoseport 3000
+#    $ kill-port 3000
 #    # => node    10320 andes   27u  IPv6 0xe258fbdc0ac8fc5d      0t0  TCP *:hbci (LISTEN) 
-lsof -i ":$1" | grep LISTEN
-
+lsof -n -i:$1 | grep LISTEN | awk '{ print $2 }' | xargs kill
