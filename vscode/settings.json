@@ -1,25 +1,78 @@
 {
-    "editor.autoClosingBrackets": false,
-    "editor.codeLens": false,
-    "editor.fontSize": 16,
+    "editor.fontFamily": "hasklig, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
+    // zoom to change the font size everywhere
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
     "editor.formatOnPaste": false,
+    // relative line numbers for vim navigation
+    "editor.lineNumbers": "relative",
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.rulers": [
         80,
         120
     ],
-    "editor.tabSize": 4,
     "explorer.autoReveal": false,
     "files.trimTrailingWhitespace": true,
     "javascript.suggestionActions.enabled": false,
-    "window.zoomLevel": 0,
     // Hide the extra left-left nav bar
     "workbench.activityBar.visible": false,
+    "workbench.tree.renderIndentGuides": "none",
     "workbench.list.horizontalScrolling": true,
-    // Hide the file list from the left nav
-    "explorer.openEditors.visible": 0,
-    "workbench.iconTheme": "file-icons",
     "workbench.startupEditor": "welcomePage",
-    "editor.fontFamily": "hasklig, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontLigatures": true
+    "workbench.colorTheme": "Native UI - Seti",
+    "editor.minimap.enabled": false,
+    "editor.cursorBlinking": "phase",
+    "editor.renderIndentGuides": false,
+    "breadcrumbs.enabled": true,
+    /*
+     * disable tabs
+     */
+    "workbench.editor.showTabs": false,
+    "workbench.editor.enablePreview": false,
+    "explorer.openEditors.visible": 0,
+    /*
+     * /disable tabs
+     * make intellisense less intrusive (put it behind ctrl+space)
+     */
+    "editor.autoClosingQuotes": "never",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoSurround": "never", // (I think this replaces the other autoClosing ones)
+    "editor.codeLens": false,
+    "merge-conflict.codeLens.enabled": false,
+    "editor.hover.enabled": false,  // disable hover popups
+    "editor.parameterHints.enabled": false, // disable function argument hints
+	// Controls whether suggestions should automatically show up while typing.
+	"editor.quickSuggestions": {
+		"other": false,
+		"comments": false,
+		"strings": false
+	},
+    // Controls the delay in milliseconds after which quick suggestions will show up.
+    "editor.quickSuggestionsDelay": 9999999,
+    // Controls whether snippets are shown with other suggestions and how they are sorted.
+    "editor.snippetSuggestions": "none",
+	// Controls whether suggestions should automatically show up when typing trigger characters.
+    "editor.suggestOnTriggerCharacters": false,
+    /*
+     * /make intellisense less intrusive
+     */
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "extensions.ignoreRecommendations": true,
+    "workbench.sideBar.location": "left",
+    "workbench.colorCustomizations": {
+
+    },
+    // icon theme
+    "workbench.iconTheme": "native-file-icons",
+    /*
+     * whether or not to allow folder navigation when only one folder is
+     * nested in another. Without this, you have to go to finder or the
+     * terminal to add sibling folders ¯\_(ツ)_/¯
+     */
+    "explorer.compactFolders": false,
 }

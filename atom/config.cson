@@ -8,13 +8,16 @@
     highlightMatchingLineNumber: true
     wrapSelectionsInBrackets: false
   core:
+    disabledPackages: [
+      "terminal-tab"
+    ]
     telemetryConsent: "no"
     themes: [
-      "seti-ui"
+      "native-ui"
       "seti-syntax"
     ]
   editor:
-    fontFamily: "hasklig, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontFamily: "hasklig,\"Jetbrains Mono\", Menlo, Consolas, DejaVu Sans Mono, monospace"
     fontSize: 16
     preferredLineLength: 81
     scrollPastEnd: true

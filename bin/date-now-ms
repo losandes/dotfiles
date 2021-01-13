@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+/*
+ *  Generates the time since UNIX epoch in milliseconds
+ *
+ *  Usage:
+ *     $ date-now-ms
+ *       1610570711422
+ */
+
+function main () {
+  console.log(Date.now())
+}
+
+main()

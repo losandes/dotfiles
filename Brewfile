@@ -54,6 +54,7 @@ mas "Wipr", id: 1320666476
 # brew "awscli"
 # brew "azure-cli"
 # brew "ffmpeg"
+# brew "keka"
 # brew "hub"
 # brew "fontforge"
 # brew "openvpn", restart_service: true, link: false

@@ -48,3 +48,8 @@ Or interactively:
 read -p "What extension do you want to search for? " ext; read -p "What text do you want to search for? " txt; grep -rn --include="*.$ext" $txt *;
 ```
 
+# Find in files, excluding directories
+
+```
+grep -R --exclude-dir=node_modules 'blocks:' src/lib
+```
