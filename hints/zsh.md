@@ -1,3 +1,25 @@
+# ZSH
+
+## Aliases
+
+[zsh productivity tips](https://opensource.com/article/18/9/tips-productivity-zsh#file-408486:~:text=2.%20Clever%20aliases)
+
+### Suffix Alias
+
+```Shell
+export alias -s {yml,yaml}=vim
+myConfig.yml # turns into `vim myConfig.yml`
+```
+
+### Global Alias
+
+```Shell
+export alias -g G='| grep -i'
+tail -f ./my.log G 500 # expands to `tail -f ./my.log | grep -i 500`
+```
+
+## .zshrc
+
 Close to default zsh config:
 
 ```
