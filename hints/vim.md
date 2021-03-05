@@ -35,7 +35,7 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 
 * `v`           | highlight a character
 * `shift+v`     | highlight a row
-* `gcc`		| comment out a line (vim-commentary plugin)
+* `gcc`		      | comment out a line (vim-commentary plugin)
 
 ### Copy (Yank (has most of the options of delete))
 
@@ -80,7 +80,7 @@ Vim is an editor to create or edit a text file. There are two modes in vim. One 
 > * `:g/a/s// /g` replace the letter a, by blank
 > * `:g/a/s///g` replace a by nothing
 >
-> note: Even this command be undone by u
+> note: Even this command can be undone by u
 >
 > highlight the current word at the cursor with `*`, then `:%s//<replace_with>/g`
 
