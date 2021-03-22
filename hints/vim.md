@@ -44,12 +44,12 @@ Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.
 * `G`            | scroll to the bottom of the file
 * `0`            | scroll to the beginning of the current line
 * `$`            | scroll to the end of the current line
-* `w`            | Forward one word
-* `b`            | Backward one word
+* `w`            | forward one word
+* `b`            | backward one word
 * `ctrl + f`     | page forward
 * `ctrl + b`     | page backward
-* `ctrl + u`     | Up half screenful
-* `ctrl + d`     | Down half screenful
+* `ctrl + u`     | half page forward
+* `ctrl + d`     | half page backward
 
 > http://vim.wikia.com/wiki/Moving_around
 
@@ -62,12 +62,12 @@ Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.
 
 ### Copy (Yank (has most of the options of delete))
 
-* `yy` yank current line
-* `y$` yank to end of current line from cursor
-* `yw` yank from cursor to end of current word
-* `5yy` yank 5 lines
-* `5"+yy` yank 5 lines to the OS clipboard
-* `mk` to mark beginning of selection, then navigate to end of selection and `y'k` to copy a block
+* `yy`      | yank current line
+* `y$`      | yank to end of current line from cursor
+* `yw`      | yank from cursor to end of current word
+* `5yy`     | yank 5 lines
+* `5"+yy`   | yank 5 lines to the OS clipboard
+* `mk`      | to mark beginning of selection, then navigate to end of selection and `y'k` to copy a block
 
 ### Paste (used after delete or yank to recover lines.)
 
@@ -78,14 +78,15 @@ Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.
 
 ### Delete / Cut
 
-* `x`     | Delete character
-* `dw`    | Dword from cursor on
-* `db`    | Delete word backward
-* `dd`    | Delete line
-* `d$`    | Delete to end of line
-* `d^`    | (d caret, not CTRL d) Delete to beginning of line
-* `d`     | Delete the selection (i.e. what you selected with `shift+v`, or `v`)
-* `mk`    | to mark beginning of selection, then navigate to end of selection and `d'k` to delete a block
+* `x`     | delete character at cursor
+* `dw`    | delete word at cursor
+* `db`    | delete previous word
+* `dd`    | delete line
+* `d$`    | delete to end of line
+* `d0`    | delete to beginning of line
+* `d^`    | (d caret, not CTRL d) delete to beginning of line
+* `d`     | delete the selection (i.e. what you selected with `shift+v`, or `v`)
+* `mk`    | mark beginning of selection, then navigate to end of selection and `d'k` to delete a block
 
 ### Replace
 

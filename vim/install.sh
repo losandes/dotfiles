@@ -20,6 +20,7 @@ fi
 # 'ArtBIT/vim-modularvimrc': Load directory specific .vimrc files (including the ones from parent directories)
 # 'mhinz/vim-startify': adds a start page with quotes and recently opened files
 # 'othree/yajs.vim': better JavaScript syntax highlighting (don't use on slow machines)
+# 'haya14busa/incsearch.vim': incrementally highlights ALL pattern matches unlike default 'incsearch'
 
 if [ ! -d ~/.vim/bundle/vim-sensible ]; then
   git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/vim-sensible
