@@ -1,7 +1,7 @@
 VIM
 ===
 
-Vim is a text file editor with two modes: command mode, and insert mode.
+Vim is a text file editor with multiple modes: command mode, insert mode, visual mode, and replace mode.
 
 Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/)
 
