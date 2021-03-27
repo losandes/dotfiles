@@ -1,0 +1,5 @@
+#!/bin/sh
+
+B_1=~/src/losandes/notes/interview-and-resume/interview-questions.md
+B_2=~/src/losandes/notes/interview-and-resume/exercise-01.java
+e $B_1 $B_2 2>/dev/null

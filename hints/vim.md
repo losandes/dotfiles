@@ -136,6 +136,21 @@ Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.
 * `:tabonly`      | close other tabs
 * `:tabs`         | list tabs
 
+### Splits
+
+* `:vsp`, `:vsplit`     | split the window vertically
+* `:split`              | split the window horizontally
+* `Ctrl + w {h|j|k|l}`  | navigate between splits
+* `:vertical sb 3`      | split the window vertically, and open buffer 3 in the new pane
+* `:vertical rightbelow sfind file.txt` | Create a vertical split and read file.txt into the buffer in the right window
+* `:rightbelow sfind file.txt` | Create a horizontal split and read file.txt into the buffer in the bottom window
+* `:vertical resize 80` | change the width of the current window to 80 columns
+* `:vertical resize +5` | change the width of the current window by 5 columns
+* `:vertical resize -5` | change the width of the current window by 5 columns
+* `:resize +5`          | change the height of the current window by 5 columns
+
+> https://vim.fandom.com/wiki/Resize_splits_more_quickly
+
 ### Bookmarks
 
 * `m{lowercaseletter}`  | add a bookmark, assigned to _lowercaseletter_

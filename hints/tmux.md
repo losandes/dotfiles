@@ -21,6 +21,38 @@ $ tmux kill-server                        # Kill tmux server, along with all ses
 
 ## Example tmux script
 
+inspired by: https://github.com/davidlamt/davidltran.com/blob/master/tmux-workspace.sh
+
+```Shell
+#!/bin/sh
+
+session="dev"
+
+# Check if the session exists, discarding output
+# We can check $? for the exit status (zero for success, non-zero for failure)
+tmux has-session -t $session 2>/dev/null
+
+if [ $? != 0 ]; then
+  # Create new detached session and start vim
+  tmux new-session -d -n "dev" -s $session -x $(tput cols) -y $(tput lines)
+  tmux send-keys "e" C-m
+
+  # Git pane
+  tmux split-window -h
+
+  # usage: resize-pane [-DLRUZ] [-x width] [-y height] [-t target-pane] [adjustment]
+  tmux resize-pane -t 0 -x 85
+
+  # Select first pane
+  tmux select-pane -t 0
+fi
+
+# Attach to created session
+tmux attach-session -t $session
+```
+
+## Example tmux script 2
+
 ```Shell
 #!/usr/local/Cellar/tmux/2.8/bin/tmux source-file
 #

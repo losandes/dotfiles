@@ -19,6 +19,6 @@
 if test ! $@; then
   exec "$EDITOR"
 else
-  exec "$EDITOR" "${1}"
+  exec "$EDITOR" $@
 fi
 
