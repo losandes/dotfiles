@@ -1,0 +1,63 @@
+.colors {
+  background-color: #F1EACA;
+  background-color: rgb(241, 234, 202);
+  background-color: hsl(49, 58%, 86%);
+
+  /* rgb */
+  background-color: #ff0000;
+  background-color: rgb(255, 0, 0);
+  background-color: #00ff00;
+  background-color: rgb(0, 255, 0);
+  background-color: #0000ff;
+  background-color: rgb(0, 0, 255);
+
+  /* bright */
+  background-color: #004bff;
+  background-color: rgb(0, 75, 255);
+  background-color: #7f21f0;
+  background-color: rgb(127, 32, 240);
+  background-color: #7f00ff;
+  background-color: rgb(127, 0, 255);
+  background-color: #ee0cd5;
+  background-color: rgb(238, 12, 213);
+  background-color: #07cfe3;
+  background-color: rgb(7, 207, 227);
+  background-color: #05e516;
+  background-color: rgb(5, 230, 22);
+
+  /* hot */
+  background-color: rgb(30, 0, 255);
+  background-color: rgb(127, 0, 255);
+  background-color: rgb(238, 0, 213);
+  background-color: rgb(255, 0, 130);
+  background-color: rgb(255, 84, 0);
+  background-color: rgb(0, 0, 0);
+
+  /* whitefox */
+  background-color: #1e88e5;
+  background-color: rgb(30, 136, 230);
+  background-color: #e6403a;
+  background-color: rgb(230, 63, 57);
+  background-color: #eedd39;
+  background-color: rgb(238, 221, 57);
+  background-color: #fe7700;
+  background-color: rgb(254, 119, 0);
+
+  /* belafonte */
+  background-color: #e65f4b;
+  background-color: rgb(230, 95, 75);
+  background-color: #fdbb38;
+  background-color: rgb(253, 187, 56);
+  background-color: #fabf3a;
+  background-color: rgb(250, 191, 58);
+  background-color: #299eb5;
+  background-color: rgb(41, 158, 181);
+  background-color: #2fa7be;
+  background-color: rgb(47, 167, 190);
+  background-color: #77c1d2;
+  background-color: rgb(119, 193, 210);
+  background-color: #ebebeb;
+  background-color: rgb(235, 235, 235);
+  background-color: #292929;
+  background-color: rgb(41, 41, 41);
+}

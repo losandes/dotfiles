@@ -1,0 +1,95 @@
+#!/usr/bin/osascript
+# @see https://apple.stackexchange.com/questions/408019/dismiss-macos-big-sur-notifications-with-keyboard
+# @see https://github.com/zakyum/alfred-notification-dismisser/blob/master/src/dismiss-active-notifications.applescript
+
+# Dismisses, snoozes, or joins, and dismisses notifications produced by 
+# macos notification center.
+# @param n {int} the number of recursions performed; used to limit runaway processing
+# @param theArg {string} the action to take: "Snooze", "Join", "Close"
+on dismiss_notification_center(n, theArg)
+  log theArg & " Notification Center: " & n
+  set performedAction to false
+  set performedOnlyOnceAction to false
+
+  # Limit recusion to 30 notifications so this doesn't become a runaway process
+  if n > 29
+    return
+  end if
+  
+  activate application "NotificationCenter"
+  tell application "System Events"
+  tell process "Notification Center"
+    try
+      # when there are no notifications, this may result in an error:
+      # > 'System Events got an error: Can’t get window "Notification Center" of process "Notification Center".'
+      #
+      # After a notification is dismissed, all notifications are 
+      # re-rendered, so this error _can_ be caused by a race condition
+      # in which case you may want to change the sleep duration 
+      # at the bottom of this function. It's this error we look 
+      # for to end recursion.
+      set theWindow to group 1 of UI element 1 of scroll area 1 of window "Notification Center"
+    on error e
+      log quoted form of e
+      # end recursion
+      return
+    end try
+
+    set theActions to actions of theWindow
+    repeat with theGuiAction in theActions
+      # log theArg & ": " & description of theGuiAction
+      if theArg is "Snooze" and description of theGuiAction is "Snooze" then
+        tell theWindow
+          perform theGuiAction
+          set performedAction to true
+          exit repeat
+        end tell
+      else if theArg is "Close" and description of theGuiAction is in {"Close", "Clear All"} then
+        tell theWindow
+          perform theGuiAction
+          set performedAction to true
+          exit repeat
+        end tell
+      else if theArg is "Join" and description of theGuiAction is "Join" then
+        tell theWindow
+          perform theGuiAction
+          set performedOnlyOnceAction to true
+          exit repeat
+        end tell
+      end if
+    end repeat
+  end tell # Notifications Center
+  end tell # System Events
+  
+  # log "performedAction: " & performedAction
+  
+  if performedOnlyOnceAction
+    # end recursion
+    return
+  else if performedAction
+    # There still may be displayed notifications. Recurse until we get an 
+    # error indicating there are no more notifications to dismiss. We need 
+    # to sleep before recursing to attempt to avoid a race condition caused 
+    # by macos re-rendering the notifications after each dismissal.
+    try
+      do shell script "/bin/sleep 0.5"
+      dismiss_notification_center(n + 1, theArg)
+    on error errString number errNumber 
+      log "err: " & errString & "; number: " & number as string & "; errNumber: " & errNumber as string
+      error errString number errNumber
+    end try
+  end if
+end dismiss_notification_center
+
+on run argv
+  set theAction to "Close"
+  repeat with theArg in argv
+    if theArg as string is "-s"
+      set theAction to "Snooze"
+    else if theArg as string is "-j"
+      set theAction to "Join"
+    end if
+  end repeat
+  
+  dismiss_notification_center(0, theAction)
+end run

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "\n\nPress 'fn+esc', or 'fn+b' to enter DFU mode\n\n"
+./mdloader_mac -f --download massdrop_alt_mac_losandes_02.bin --restart

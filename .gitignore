@@ -3,6 +3,7 @@
 .DS_Store
 dotfiles-workspace
 hidden
+node_modules
 
 ## ignore gitconfig
 git/gitconfig.local.symlink

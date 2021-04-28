@@ -116,8 +116,10 @@ Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.
 
 ### Buffers
 
+* `:enew`            | create a new empty buffer
 * `:ls`              | list the current buffers
 * `:b <number>`      | switch to a buffer by number (i.e. `:b 4`)
+* `:b! <number>`     | switch to a buffer by number without saving the current buffer (i.e. `:b! 4`)
 * `_n_ ctrl+shift+^` | switch to a buffer by number (i.e. `4 ctrl+shift+^`)
 * `:b <name>`        | switch to a buffer by name (i.e. `:b vim.md`; supports TAB completion)
 * `:bd`              | close/delete the current buffer; will fail if unsaved (nothing is deleted)
