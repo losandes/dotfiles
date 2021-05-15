@@ -111,8 +111,9 @@ Perhaps better than this hint sheet is this [freeCodeCamp tutorial](https://www.
 
 ### Undo
 
-* `u`    | undo
-* `U`    | restore line
+* `u`      | undo
+* `U`      | restore line
+* `ctrl+r` | redo
 
 ### Buffers
 

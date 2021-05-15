@@ -1,9 +1,0 @@
-#!/bin/bash
-
-rm ~/src/losandes/qmk-firmware/massdrop_alt_mac_losandes.bin
-cd ~/src/losandes/qmk-firmware
-make clean
-make massdrop/alt:mac_losandes
-cp massdrop_alt_mac_losandes.bin ~/.dotfiles/macos/alt/massdrop_alt_mac_losandes.bin
-cd ~/.dotfiles/macos/alt
-./flash

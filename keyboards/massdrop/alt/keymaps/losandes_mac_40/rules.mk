@@ -1,0 +1,5 @@
+# This keymap requires Massdrop Configurator support
+OPT_DEFS += -DUSE_MASSDROP_CONFIGURATOR
+MOUSEKEY_ENABLE = yes
+LEADER_ENABLE = yes
+COMBO_ENABLE = yes

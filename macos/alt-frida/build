@@ -1,9 +1,0 @@
-#!/bin/bash
-
-rm ~/src/losandes/qmk-firmware/massdrop_alt_cb_frida.bin
-cd ~/src/losandes/qmk-firmware
-make clean
-make massdrop/alt:cb_frida
-cp massdrop_alt_cb_frida.bin ~/.dotfiles/macos/alt-frida/massdrop_alt_cb_frida.bin
-cd ~/.dotfiles/macos/alt-frida
-./flash

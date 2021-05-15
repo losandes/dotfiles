@@ -38,7 +38,7 @@ on dismiss_notification_center(n, theArg)
     set theActions to actions of theWindow
     repeat with theGuiAction in theActions
       # log theArg & ": " & description of theGuiAction
-      if theArg is "Snooze" and description of theGuiAction is "Snooze" then
+      if theArg is "Snooze" and description of theGuiAction is "Snooze (Automatic)" then
         tell theWindow
           perform theGuiAction
           set performedAction to true
