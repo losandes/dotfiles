@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm ~/src/losandes/qmk-firmware/planck_rev6_losandes_ambi.bin
+cd ~/src/losandes/qmk-firmware
+make clean
+make planck/rev6:losandes_ambi
+make planck/rev6:losandes_ambi:dfu-util
+cp planck_rev6_losandes_ambi.bin ~/.dotfiles/keyboards/binaries/planck/losandes_ambi/planck_rev6_losandes_ambi.bin

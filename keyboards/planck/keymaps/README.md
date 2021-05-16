@@ -3,8 +3,8 @@
 This folder is meant to be symlinked into qmk:
 
 ```Shell
-# Clone Massdrop's fork of QMK
-git clone git@github.com:Massdrop/qmk_firmware.git
+# Clone QMK
+git clone git@github.com:qmk/qmk_firmware.git
 
 # Delete or remove the planck keymaps
 cd qmk-firmware/keyboards/planck
