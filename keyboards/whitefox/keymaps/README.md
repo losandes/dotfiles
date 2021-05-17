@@ -1,4 +1,4 @@
-# losandes Massdrop Alt Keymaps
+# losandes Whitefox Keymaps
 
 This folder is meant to be symlinked into qmk:
 

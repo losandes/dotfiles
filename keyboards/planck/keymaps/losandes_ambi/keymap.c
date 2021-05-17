@@ -44,14 +44,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
  * |SftCp|  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |Enter|
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |Plank| Alt | Gui | Sym |NavEn| Num |Space+Shift|  ←  |  ↓  |  ↑  |  →  |
+ * |Plank| Alt | Gui | Sym |NavEn| Num |Space+Shift|  ←  |  ↑  |  ↓  |  →  |
  * `-----------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
   LYR_MOS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
   CTL_TAB, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    LYR_SYM, KC_L,    KC_SCLN, KC_QUOT,
   SFT_CPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-  LYR_PLK, KC_LALT, KC_LGUI, KC_LGUI, LYR_NAV, LYR_NUM, KC_SPC,  KC_SPC,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  LYR_PLK, KC_LALT, KC_LGUI, KC_LGUI, LYR_NAV, LYR_NUM, KC_SPC,  KC_SPC,  KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT
 ),
 
 /* NUM (Teal)
@@ -98,14 +98,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
  * |     |     |     |     |     |     |     | Mute|     | Play|     | Mic |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |     |     |     |     |*NAV*|     |Space+Shift| Prev| Vol↓| Vol↑| Next|
+ * |     |     |     |     |*NAV*|     |Space+Shift| Prev| Vol↑| Vol↓| Next|
  * `-----------------------------------------------------------------------'
  */
 [_LYR_NAV] = LAYOUT_planck_grid(
   _______, _______, _______, _______, _______, _______, _______, _______,  KC_HOME,  KC_UP,   KC_END,   KC_PGUP,
   _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______, _______, _______,  KC_LEFT,  KC_DOWN, KC_RGHT,  KC_PGDN,
   _______, _______, _______, _______, _______, _______, _______, KC__MUTE, _______,  KC_MPLY,  _______, ZOM_MIC,
-  XXXXXXX, _______, _______, XXXXXXX, _______, XXXXXXX, KC_SPC,  KC_SPC,   KC_MRWD,  KC_VOLD,  KC_VOLU, KC_MFFD
+  XXXXXXX, _______, _______, XXXXXXX, _______, XXXXXXX, KC_SPC,  KC_SPC,   KC_MRWD,  KC_VOLU, KC_VOLD,  KC_MFFD
 ),
 
 /* Mouse (Blue)

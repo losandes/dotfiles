@@ -1,4 +1,4 @@
-# losandes Massdrop Alt Keymaps
+# losandes Planck Keymaps
 
 This folder is meant to be symlinked into qmk:
 
