@@ -5,9 +5,8 @@ extern keymap_config_t keymap_config;
 
 enum planck_layers {
   _QWERTY,
-  _LYR_NM1,
-  _LYR_NM2,
-  _LYR_SYM,
+  _LYR_NUM,
+  _LYR_PAD,
   _LYR_NAV,
   _LYR_MOS,
   _LYR_PLK
@@ -15,28 +14,28 @@ enum planck_layers {
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
-  LYR_NM1,
-  LYR_NM2,
+  LYR_NUM,
   LYR_PAD,
-  LYR_SYM,
   LYR_NAV,
   LYR_MOS,
   LYR_PLK,
   KCM_PRN,
   KCM_CBR,
-  KCM_BRC
+  KCM_BRC,
+  KCM_ARR
 };
 
-#define LYR_NM1 TT(_LYR_NM1)
-#define LYR_NM2 LT(_LYR_NM2, KC_F)
-#define LYR_SYM LT(_LYR_SYM, KC_K)
-#define LYR_NAV LT(_LYR_NAV, KC_ENT)
+#define LYR_NUM TT(_LYR_NUM)
+
+#define LYR_NAV MO(_LYR_NAV)
 #define LYR_MOS LT(_LYR_MOS, KC_ESC)
 #define LYR_PLK MO(_LYR_PLK)
 #define SFT_CPS LSFT_T(KC_CAPS)
 #define ZOM_MIC LSFT(LGUI(KC_A))
 #define CTL_TAB CTL_T(KC_TAB)
 #define ALFRED LALT(KC_SPACE)
+#define TAB_LEFT LALT(LGUI(KC_LEFT))
+#define TAB_RGHT LALT(LGUI(KC_RIGHT))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -44,91 +43,72 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------.
  * |MsEsc|  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  | Bksp|
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |CtlTb|  A  |  S  |  D  |Nm2-F|  G  |  H  |  J  |Sym-K|  L  |  ;  |  "  |
+ * |CtlTb|  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  "  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
  * |SftCp|  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |Enter|
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |Plank| Alt | Gui | Gui |NavEn| Num1|   Space   |  ←  |  ↑  |  ↓  |  →  |
+ * |Plank| Alt | Gui | Gui | Nav | Num1|   Space   |  ←  |  →  |  ↓  |  ↑  |
  * `-----------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
   LYR_MOS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-  CTL_TAB, KC_A,    KC_S,    KC_D,    LYR_NM2, KC_G,    KC_H,   KC_J,    LYR_SYM, KC_L,    KC_SCLN, KC_QUOT,
+  CTL_TAB, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   SFT_CPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-  LYR_PLK, KC_LALT, KC_LGUI, KC_LGUI, LYR_NAV, LYR_NM1, KC_SPC, KC_SPC,  KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT
+  LYR_PLK, KC_LALT, KC_LGUI, KC_LGUI, LYR_NAV, LYR_NUM, KC_SPC, KC_SPC,  KC_LEFT, KC_RGHT, KC_DOWN, KC_UP
 ),
 
-/* NUM1 (Coral)
+/* NUM (Goldenrod)
  * ,-----------------------------------------------------------------------.
  * |  `  |  !  |  @  |  #  |  $  |  %  |  ^  |  &  |  *  |  () |  -  |  =  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
  * |  ~  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  +  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |     |     |     |  _  |  -  | Bksp| Del |     |  [] |  {} |  \  |  |  |
+ * |     |     |  -  |  _  |  =  | Bksp| Del |     |  <  |  >  |  \  |  |  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
  * |     |     |     |     |     |*NUM*|   ALFRED  |     |     |     |     |
  * `-----------------------------------------------------------------------'
  */
-[_LYR_NM1] = LAYOUT_planck_grid(
+[_LYR_NUM] = LAYOUT_planck_grid(
   KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KCM_PRN, KC_MINS, KC_EQL,
   KC_TILD, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PLUS,
-  XXXXXXX, XXXXXXX, XXXXXXX, KC_UNDS, KC_MINS, KC_BSPC, KC_DEL,  XXXXXXX, KCM_BRC, KCM_CBR, KC_BSLS, KC_PIPE,
+  XXXXXXX, XXXXXXX, KC_MINS, KC_UNDS, KC_EQL, KC_BSPC, KC_DEL,  XXXXXXX, KC_LT,   KC_GT,   KC_BSLS, KC_PIPE,
   _______, _______, _______, _______, KC_LCTL, _______, ALFRED,  ALFRED,  _______, _______, _______, _______
 ),
 
-/* NUM2 (Goldenrod)
+/* NUMPAD (Coral)
  * ,-----------------------------------------------------------------------.
- * |  F7 |  F8 |  F9 | F12 |  =  |  (  |  () |  )  |  7  |  8  |  9  |  -  |
+ * |  F7 |  F8 |  F9 | F12 |  (  |  () |  =  |  )  |  7  |  8  |  9  |  -  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |  F4 |  F5 |  F6 | F11 |*NUM*|  {  |  {} |  }  |  4  |  5  |  6  |  +  |
+ * |  F4 |  F5 |  F6 | F11 |  {  |  {} |     |  }  |  4  |  5  |  6  |  +  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |  F1 |  F2 |  F3 | F10 |  _  |  [  |  [] |  ]  |  1  |  2  |  3  |  *  |
+ * |  F1 |  F2 |  F3 | F10 |  [  |  [] |  _  |  ]  |  1  |  2  |  3  |  *  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * | Ctl | Alt | Gui |     |     |     |   Space   |  0  |  ,  |  .  |  /  |
+ * |     | Alt | Gui | Ctl |     |     |   Space   |  0  |  ,  |  .  |  /  |
  * `-----------------------------------------------------------------------'
  */
-[_LYR_NM2] = LAYOUT_planck_grid(
-  KC_F7,   KC_F8,   KC_F9,   KC_F12,  KC_EQL,  KC_LPRN, KCM_PRN, KC_RPRN, KC_7,    KC_8,    KC_9,   KC_PMNS,
-  KC_F4,   KC_F5,   KC_F6,   KC_F11,  _______, KC_LCBR, KCM_CBR, KC_RCBR, KC_4,    KC_5,    KC_6,   KC_PLUS,
-  KC_F1,   KC_F2,   KC_F3,   KC_F10,  KC_UNDS, KC_LBRC, KCM_BRC, KC_RBRC, KC_1,    KC_2,    KC_3,   KC_PAST,
-  _______, _______, _______, _______, KC_LCTL, XXXXXXX, KC_SPC,  KC_SPC,  KC_0,    KC_COMM, KC_DOT, KC_SLSH
-),
-
-
-/* SYMBOLS (Gold)
- * ,-----------------------------------------------------------------------.
- * |  `  |  !  |  @  |  #  |  $  |  %  |  ^  |  &  |  *  |  () |  -  |  =  |
- * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |  ~  |  () |  -  |  =  |     |     |     |     |*SYM*|  {} |  _  |  +  |
- * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |Shift|  {} |  _  |  +  |     |     |     |Shift|     |  [] |  \  |  |  |
- * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |     |  [] |  |  |     |     |     |   Space   |  0  |     |     |  $  |
- * `-----------------------------------------------------------------------'
- */
-[_LYR_SYM] = LAYOUT_planck_grid(
-  KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KCM_PRN, KC_MINS, KC_EQL,
-  KC_TILD, KCM_PRN, KC_MINS, KC_EQL,  _______, _______, _______, _______, _______, KCM_CBR, KC_UNDS, KC_PLUS,
-  KC_LSFT, KCM_CBR, KC_UNDS, KC_PLUS, _______, _______, _______, KC_LSFT, _______, KCM_BRC, KC_BSLS, KC_PIPE,
-  _______, KCM_BRC, KC_PIPE, _______, XXXXXXX, XXXXXXX, KC_SPC,  KC_SPC,  KC_0,    _______, _______, KC_DLR
+[_LYR_PAD] = LAYOUT_planck_grid(
+  KC_F7,   KC_F8,   KC_F9,   KC_F12,  KC_LPRN, KCM_PRN, KC_EQL,  KC_RPRN, KC_7,    KC_8,    KC_9,   KC_MINS,
+  KC_F4,   KC_F5,   KC_F6,   KC_F11,  KC_LCBR, KCM_CBR, XXXXXXX, KC_RCBR, KC_4,    KC_5,    KC_6,   KC_PLUS,
+  KC_F1,   KC_F2,   KC_F3,   KC_F10,  KC_LBRC, KCM_BRC, KC_UNDS, KC_RBRC, KC_1,    KC_2,    KC_3,   KC_PAST,
+  _______, _______, _______, KC_LCTL, XXXXXXX, XXXXXXX, KC_SPC,  KC_SPC,  KC_0,    KC_COMM, KC_DOT, KC_SLSH
 ),
 
 /* NAV (Magenta)
  * ,-----------------------------------------------------------------------.
- * |     |     |     |     |     |     |     |     |Home |  ↑  | End | PgUp|
+ * |     |     |  => |  !  |  =  |  (  |  )  |     |Home |  ↑  | End | PgUp|
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |     |Shift| Ctrl| Alt | Gui |     |     |     |  ←  |  ↓  |  →  | PgDn|
+ * |     |Shift| Ctrl| Alt | Gui |  {  |  }  |     |  ←  |  ↓  |  →  | PgDn|
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |     |     |     |     |     |     |     | Mute|     | Play|     | Mic |
+ * |     |     |  [] |  {} |  () |  [  |  ]  | Mute|     | Play|     | Mic |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |     |     |     |     |*NAV*|     |   Space   | Prev| Vol↑| Vol↓| Next|
+ * |     |     |     |     |*NAV*|     |   Space   | Prev| Next| Vol↓| Vol↑|
  * `-----------------------------------------------------------------------'
  */
 [_LYR_NAV] = LAYOUT_planck_grid(
-  _______, _______, _______, _______, _______, _______, _______, _______,  KC_HOME,  KC_UP,   KC_END,   KC_PGUP,
-  _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______, _______, _______,  KC_LEFT,  KC_DOWN, KC_RGHT,  KC_PGDN,
-  _______, _______, _______, _______, _______, _______, _______, KC__MUTE, _______,  KC_MPLY,  _______, ZOM_MIC,
-  _______, _______, _______, XXXXXXX, _______, XXXXXXX, KC_SPC,  KC_SPC,   KC_MRWD,  KC_VOLU, KC_VOLD,  KC_MFFD
+  _______, _______, KCM_ARR, KC_EXLM, KC_EQL,  KC_LPRN, KC_RPRN, _______,  KC_HOME,  KC_UP,   KC_END,   KC_PGUP,
+  _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_LCBR, KC_RCBR, _______,  KC_LEFT,  KC_DOWN, KC_RGHT,  KC_PGDN,
+  _______, _______, KCM_BRC, KCM_CBR, KCM_PRN, KC_LBRC, KC_RBRC, KC__MUTE, _______,  KC_MPLY, _______,  ZOM_MIC,
+  _______, _______, _______, XXXXXXX, _______, XXXXXXX, KC_SPC,  KC_SPC,   KC_MRWD,  KC_MFFD, KC_VOLD,  KC_VOLU
 ),
 
 /* MOUSE (Blue)
@@ -139,14 +119,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
  * |     |     |     |     |     |     |     |     |     |     |     |     |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |     |     |     |     |     |     |   LClick  |     |     |     |     |
+ * |     |     |     |     |     |     |   LClick  | TabL| TabR|     |     |
  * `-----------------------------------------------------------------------'
  */
 [_LYR_MOS] = LAYOUT_planck_grid(
-  _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______, _______, _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U,
-  _______, _______, _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN1, _______, _______, _______, _______
+  _______, KC_LSFT, KC_LCTL,  KC_LALT,  KC_LGUI, _______, _______, _______, KC_BTN1,  KC_MS_U,  KC_BTN2, KC_WH_D,
+  _______, _______, _______,  _______,  _______, _______, _______, _______, KC_MS_L,  KC_MS_D,  KC_MS_R, KC_WH_U,
+  _______, _______, _______,  _______,  _______, _______, _______, _______, _______,  _______,  _______, _______,
+  _______, _______, _______,  XXXXXXX,  XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN1, TAB_LEFT, TAB_RGHT, _______, _______
 ),
 
 
@@ -155,11 +135,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Reset| Debug|      | RGB  |RGBMOD| HUE+ | HUE- | SAT+ | SAT- |BRGTH+|BRGTH-| Del  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  NM2 |      |MUSmod|Aud on|Audoff|AGnorm|AGswap|      |      |      |      | Power|
+ * |NUMPAD|      |MUSmod|Aud on|Audoff|AGnorm|AGswap|      |      |      |      | Power|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Qwerty|Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|TermOn|TermOf|      |      |      |
+ * |QWERTY|Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|TermOn|TermOf|      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |  RGB |      |      |      |             |      |      |      |      |      |
+ * |*PLNK*|  RGB |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_LYR_PLK] = LAYOUT_planck_grid(
@@ -184,30 +164,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LYR_PAD:
       if (record->event.pressed) {
         print("mode just switched to NUMPAD\n");
-        set_single_persistent_default_layer(_LYR_NM2);
-        rgblight_sethsv(HSV_GOLDENROD);
+        set_single_persistent_default_layer(_LYR_PAD);
+        rgblight_sethsv(HSV_CORAL);
       }
       return false;
       break;
-    case LYR_NM1:
-      if (record->event.pressed) {
-        rgblight_sethsv(HSV_CORAL);
-      } else {
-        rgblight_sethsv(HSV_TEAL);
-      }
-      return true;
-      break;
-    case LYR_NM2:
+    case LYR_NUM:
       if (record->event.pressed) {
         rgblight_sethsv(HSV_GOLDENROD);
-      } else {
-        rgblight_sethsv(HSV_TEAL);
-      }
-      return true;
-      break;
-    case LYR_SYM:
-      if (record->event.pressed) {
-        rgblight_sethsv(HSV_GOLD);
       } else {
         rgblight_sethsv(HSV_TEAL);
       }
@@ -255,97 +219,41 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case KCM_ARR:
+      if (record->event.pressed) {
+        SEND_STRING("=>" SS_TAP(X_LEFT));
+      }
+      return false;
+      break;
   }
   return true;
 }
 
 enum combo_events {
-  XC_COPY,
-  CV_PASTE,
-  ZX_ALFRED,
-  QW_SCREEN_LEFT,
-  WE_SCREEN_RIGHT,
-  AS_TAB_LEFT,
-  SD_TAB_RIGHT,
-  QS_WORD_LEFT,
-  WD_WORD_RIGHT,
-  PBS_DEL
+  CMB_NUMPAD,
+  CMB_PIPE
 };
 
-const uint16_t PROGMEM copy_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM paste_combo[] = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM alfred_combo[] = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM screen_left_combo[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM screen_right_combo[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM tab_left_combo[] = {KC_A, KC_S, COMBO_END};
-const uint16_t PROGMEM tab_right_combo[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM word_left_combo[] = {KC_Q, KC_S, COMBO_END};
-const uint16_t PROGMEM word_right_combo[] = {KC_W, KC_D, COMBO_END};
-const uint16_t PROGMEM pbs_del_combo[] = {KC_P, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM s_f_combo[] = {KC_S, KC_F, COMBO_END};
+const uint16_t PROGMEM dot_slsh_combo[] = {KC_DOT, KC_SLSH, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [XC_COPY] = COMBO_ACTION(copy_combo),
-  [CV_PASTE] = COMBO_ACTION(paste_combo),
-  [ZX_ALFRED] = COMBO_ACTION(alfred_combo),
-  [QW_SCREEN_LEFT] = COMBO_ACTION(screen_left_combo),
-  [WE_SCREEN_RIGHT] = COMBO_ACTION(screen_right_combo),
-  [AS_TAB_LEFT] = COMBO_ACTION(tab_left_combo),
-  [SD_TAB_RIGHT] = COMBO_ACTION(tab_right_combo),
-  [QS_WORD_LEFT] = COMBO_ACTION(word_left_combo),
-  [WD_WORD_RIGHT] = COMBO_ACTION(word_right_combo),
-  [PBS_DEL] = COMBO_ACTION(pbs_del_combo)
+  [CMB_NUMPAD] = COMBO_ACTION(s_f_combo),
+  [CMB_PIPE] = COMBO_ACTION(dot_slsh_combo)
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
-    case XC_COPY:
+    case CMB_NUMPAD:
       if (pressed) {
-        tap_code16(LGUI(KC_C));
+        layer_on(_LYR_PAD);
+      } else {
+        layer_off(_LYR_PAD);
       }
       break;
-    case CV_PASTE:
+    case CMB_PIPE:
       if (pressed) {
-        tap_code16(LGUI(KC_V));
-      }
-      break;
-    case ZX_ALFRED:
-      if (pressed) {
-        tap_code16(LALT(KC_SPACE));
-      }
-      break;
-    case QW_SCREEN_LEFT:
-      if (pressed) {
-        tap_code16(LCTL(KC_LEFT));
-      }
-      break;
-    case WE_SCREEN_RIGHT:
-      if (pressed) {
-        tap_code16(LCTL(KC_RIGHT));
-      }
-      break;
-    case AS_TAB_LEFT:
-      if (pressed) {
-        tap_code16(LALT(LGUI(KC_LEFT)));
-      }
-      break;
-    case SD_TAB_RIGHT:
-      if (pressed) {
-        tap_code16(LALT(LGUI(KC_RIGHT)));
-      }
-      break;
-    case QS_WORD_LEFT:
-      if (pressed) {
-        tap_code16(LALT(KC_LEFT));
-      }
-      break;
-    case WD_WORD_RIGHT:
-      if (pressed) {
-        tap_code16(LALT(KC_RIGHT));
-      }
-      break;
-    case PBS_DEL:
-      if (pressed) {
-        tap_code16(KC_DEL);
+        tap_code16(KC_PIPE);
       }
       break;
   }

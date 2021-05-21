@@ -36,7 +36,7 @@ enum alt_layers {
   _ALT_OPTS
 };
 
-enum planck_keycodes {
+enum alt_keycodes {
   QWERTY = SAFE_RANGE,
   NAV,
   MEDIA,
@@ -365,29 +365,45 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+
 enum combo_events {
   XC_COPY,
   CV_PASTE,
+  ZX_ALFRED,
+  QW_SCREEN_LEFT,
+  WE_SCREEN_RIGHT,
   AS_TAB_LEFT,
   SD_TAB_RIGHT,
-  DF_LYR1
+  QS_WORD_LEFT,
+  WD_WORD_RIGHT,
+  PBS_DEL
 };
 
 const uint16_t PROGMEM copy_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM paste_combo[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM alfred_combo[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM screen_left_combo[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM screen_right_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM tab_left_combo[] = {KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM tab_right_combo[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM lyr1_combo[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM word_left_combo[] = {KC_Q, KC_S, COMBO_END};
+const uint16_t PROGMEM word_right_combo[] = {KC_W, KC_D, COMBO_END};
+const uint16_t PROGMEM pbs_del_combo[] = {KC_P, KC_BSPC, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [XC_COPY] = COMBO_ACTION(copy_combo),
   [CV_PASTE] = COMBO_ACTION(paste_combo),
+  [ZX_ALFRED] = COMBO_ACTION(alfred_combo),
+  [QW_SCREEN_LEFT] = COMBO_ACTION(screen_left_combo),
+  [WE_SCREEN_RIGHT] = COMBO_ACTION(screen_right_combo),
   [AS_TAB_LEFT] = COMBO_ACTION(tab_left_combo),
   [SD_TAB_RIGHT] = COMBO_ACTION(tab_right_combo),
-  [DF_LYR1] = COMBO_ACTION(lyr1_combo)
+  [QS_WORD_LEFT] = COMBO_ACTION(word_left_combo),
+  [WD_WORD_RIGHT] = COMBO_ACTION(word_right_combo),
+  [PBS_DEL] = COMBO_ACTION(pbs_del_combo)
 };
 
-void process_combo_event(uint8_t combo_index, bool pressed) {
+void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
     case XC_COPY:
       if (pressed) {
@@ -397,6 +413,21 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
     case CV_PASTE:
       if (pressed) {
         tap_code16(LGUI(KC_V));
+      }
+      break;
+    case ZX_ALFRED:
+      if (pressed) {
+        tap_code16(LALT(KC_SPACE));
+      }
+      break;
+    case QW_SCREEN_LEFT:
+      if (pressed) {
+        tap_code16(LCTL(KC_LEFT));
+      }
+      break;
+    case WE_SCREEN_RIGHT:
+      if (pressed) {
+        tap_code16(LCTL(KC_RIGHT));
       }
       break;
     case AS_TAB_LEFT:
@@ -409,11 +440,19 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
         tap_code16(LALT(LGUI(KC_RIGHT)));
       }
       break;
-    case DF_LYR1:
+    case QS_WORD_LEFT:
       if (pressed) {
-        layer_on(_NAV);
-      } else {
-        layer_off(_NAV);
+        tap_code16(LALT(KC_LEFT));
+      }
+      break;
+    case WD_WORD_RIGHT:
+      if (pressed) {
+        tap_code16(LALT(KC_RIGHT));
+      }
+      break;
+    case PBS_DEL:
+      if (pressed) {
+        tap_code16(KC_DEL);
       }
       break;
   }
