@@ -86,16 +86,16 @@
     {
       "f": 3
     },
-    "3\nAlt\n\n\n\n\nD",
+    "^\nAlt\n\n\n\n\nD",
     {
       "f": 3
     },
-    "^\nCmd\n\n\n\n\nF",
+    "&\nCmd\n\n\n\n\nF",
     {
       "t": "#ff5c00\n\n\n\n\n\n#000000",
       "f": 3
     },
-    "&\n\n\n\n\n\nG",
+    "*\n\n\n\n\n\nG",
     {
       "f": 3
     },

@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------.
  * |  `  |  !  |  @  |  #  |  $  |  %  |  (  |  )  |  7  |  8  |  9  |  -  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
- * |  ~  |  1  |  2  |  3  |  ^  |  &  |  {  |  }  |  4  |  5  |  6  |  +  |
+ * |  ~  |  1  |  2  |  ^  |  &  |  *  |  {  |  }  |  4  |  5  |  6  |  +  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
  * |  \  |  |  |  -  |  _  |  =  | Bksp|  [  |  ]  |  1  |  2  |  3  |  *  |
  * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LYR_NUM] = LAYOUT_planck_grid(
   KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_LPRN, KC_RPRN, KC_7, KC_8,    KC_9,   KC_MINS,
-  KC_TILD, KC_1,    KC_2,    KC_3,    KC_CIRC, KC_AMPR, KC_LCBR, KC_RCBR, KC_4, KC_5,    KC_6,   KC_PLUS,
+  KC_TILD, KC_1,    KC_2,    KC_CIRC, KC_AMPR, KC_PAST, KC_LCBR, KC_RCBR, KC_4, KC_5,    KC_6,   KC_PLUS,
   KC_BSLS, KC_PIPE, KC_MINS, KC_UNDS, KC_EQL,  KC_BSPC, KC_LBRC, KC_RBRC, KC_1, KC_2,    KC_3,   KC_PAST,
   _______, _______, _______, _______, KC_LCTL, _______, ALFRED,  ALFRED,  KC_0, KC_COMM, KC_DOT, KC_SLSH
 ),
