@@ -1,0 +1,232 @@
+[
+  {
+    "css": ".keylabel0, .keylabel1, .keylabel2 { font-family: 'Helvetica'; }\n.keylabel3, .keylabel4, .keylabel5 { font-family: 'Helvetica'; }\n.keylabel6, .keylabel7, .keylabel8 { font-family: 'Helvetica'; }\n.keylabel9, .keylabel10, .keylabel11 { font-family: 'Helvetica'; }"
+  },
+  [
+    {
+      "t": "#ff5c00\n\n\n\n#0071f5\n\n#000000",
+      "a": 5,
+      "fa": [
+        7
+      ]
+    },
+    "`\n\n\n\nMouse\n\nEsc",
+    {
+      "t": "#ff5c00\n\n\n\n#0075ff\n\n#000000",
+      "f": 3
+    },
+    "!\n\n\n\nShift\n\nQ",
+    {
+      "t": "#ff5c00\n#fc0098\n\n\n#0075ff\n\n#000000",
+      "f": 3
+    },
+    "@\n=>\n\n\nCtrl\n\nW",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n#0075ff\n\n#000000",
+      "f": 3
+    },
+    "#\n!\n\n\nAlt\n\nE",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n#0074fc\n\n#000000",
+      "f": 3
+    },
+    "$\n=\n\n\nCmd\n\nR",
+    {
+      "t": "#ff5c00\n\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "%\n\n\n\n\n\nT",
+    {
+      "f": 3
+    },
+    "(\n\n\n\n\n\nY",
+    {
+      "f": 3
+    },
+    ")\n\n\n\n\n\nU",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n#0074fc\n\n#000000",
+      "f": 3
+    },
+    "7\nHome\n\n\nLClick\n\nI",
+    {
+      "t": "#000000\n\n\n#ff009a\n\n\n\n\n#ff5c00\n#000000",
+      "a": 4
+    },
+    "\n\n\n&uarr;\n\n\n\n\n8\nO",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n#0072f7\n\n#000000",
+      "a": 5,
+      "f": 3
+    },
+    "9\nEnd\n\n\nRClick\n\nP",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "fa": [
+        4
+      ]
+    },
+    "-\nPgUp\n\n\n\n\nBkSpc"
+  ],
+  [
+    {
+      "t": "#ff5c00\n\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "~\n\n\n\n\n\nCtrlTab",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "1\nShift\n\n\n\n\nA",
+    {
+      "f": 3
+    },
+    "2\nCtrl\n\n\n\n\nS",
+    {
+      "f": 3
+    },
+    "3\nAlt\n\n\n\n\nD",
+    {
+      "f": 3
+    },
+    "^\nCmd\n\n\n\n\nF",
+    {
+      "t": "#ff5c00\n\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "&\n\n\n\n\n\nG",
+    {
+      "f": 3
+    },
+    "{\n\n\n\n\n\nH",
+    {
+      "f": 3
+    },
+    "}\n\n\n\n\n\nJ",
+    {
+      "t": "#000000\n\n\n#ff009a\n\n\n\n\n#ff5c00\n#000000",
+      "a": 4
+    },
+    "\n\n\n&larr;\n\n\n\n\n4\nK",
+    "\n\n\n&darr;\n\n\n\n\n5\nL",
+    "\n\n\n&rarr;\n\n\n\n\n6\n;",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "a": 5,
+      "f": 3
+    },
+    "+\nPgDn\n\n\n\n\n'"
+  ],
+  [
+    {
+      "t": "#ff5c00\n\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "\\\n\n\n\n\n\nSftCap",
+    {
+      "f": 3
+    },
+    "|\n\n\n\n\n\nZ",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "-\n[]\n\n\n\n\nX",
+    {
+      "f": 3
+    },
+    "_\n{}\n\n\n\n\nC",
+    {
+      "f": 3
+    },
+    "=\n()\n\n\n\n\nV",
+    {
+      "t": "#ff5c00\n\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "BkSpc\n\n\n\n\n\nB",
+    {
+      "f": 3
+    },
+    "[\n\n\n\n\n\nN",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "]\nMute\n\n\n\n\nM",
+    {
+      "t": "#ff5c00\n\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "1\n\n\n\n\n\n,",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "2\nPlay\n\n\n\n\n.",
+    {
+      "t": "#ff5c00\n\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "3\n\n\n\n\n\n/",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "*\nMic\n\n\n\n\nReturn"
+  ],
+  [
+    {
+      "t": "#000000",
+      "a": 7,
+      "f": 3
+    },
+    "Fn",
+    {
+      "f": 3
+    },
+    "Alt",
+    {
+      "f": 3
+    },
+    "Cmd",
+    {
+      "f": 3
+    },
+    "Cmd",
+    {
+      "t": "#000000\n#ff009a",
+      "a": 5
+    },
+    "\nNav",
+    {
+      "t": "#ff5c00",
+      "f": 3
+    },
+    "Num",
+    {
+      "t": "#ff5c00\n\n\n\n#0075ff",
+      "f": 3,
+      "w": 2
+    },
+    "Alfred\n\n\n\nLeft Click\n\nSpace",
+    {
+      "t": "#ff5c00\n#ff009a\n\n\n\n\n#000000",
+      "f": 3
+    },
+    "0\nPrev\n\n\n\n\n&larr;",
+    {
+      "f": 3
+    },
+    ",\nNext\n\n\n\n\n&rarr;",
+    {
+      "f": 3
+    },
+    ".\nVol\n\n\n\n\n&darr;",
+    {
+      "f": 3
+    },
+    "/\nVol\n\n\n\n\n&uarr;"
+  ]
+]
