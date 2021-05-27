@@ -33,10 +33,3 @@
 
 // Most tactile encoders have detents every 4 stages
 #define ENCODER_RESOLUTION 4
-
-#define COMBO_COUNT 2
-#undef COMBO_TERM
-#define COMBO_TERM 13 // milliseconds
-
-// Tap-hold for fast typing: https://beta.docs.qmk.fm/using-qmk/software-features/tap_hold
-#define PERMISSIVE_HOLD
