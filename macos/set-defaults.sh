@@ -304,6 +304,12 @@ defaults write com.alfredapp.Alfred "appearance.themeuid" -string "alfred.theme.
 # EOD
 
 # ============================================================================
+# SOUNDS
+
+# Turn off trash, and screenshot sound effects
+defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
+
+# ============================================================================
 # OTHER
 echo "- Other"
 

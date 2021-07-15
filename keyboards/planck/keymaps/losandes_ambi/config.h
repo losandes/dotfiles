@@ -31,5 +31,10 @@
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
 
-// Most tactile encoders have detents every 4 stages
-#define ENCODER_RESOLUTION 4
+#define ENCODER_RESOLUTION 4 // Most tactile encoders have detents every 4 stages
+
+#define TAPPING_TOGGLE 2     // 2 taps for TT (double-tap to toggle layer)
+
+#define COMBO_COUNT 9        // The number of key combinations that are defined (must be exact)
+#undef COMBO_TERM            // The milliseconds that the combination of keys must be pressed within
+#define COMBO_TERM 20        // (numbers below 30 mean the keys need to be pressed in tandem)
